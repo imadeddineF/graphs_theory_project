@@ -1,0 +1,76 @@
+.controller {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+.controller h3 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  font-family: "Castoro", serif;
+  font-weight: 400;
+}
+.pseudocode {
+  margin: auto -0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 0.75vw;
+  text-align: left;
+  background-color: #112d4e;
+  border-radius: 5px;
+  list-style-position: outside;
+  width: 100%;
+}
+.pseudocode li {
+  margin: 0;
+  margin-left: 1.5em;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  box-sizing: border-box;
+  font-family: "Castoro", serif;
+  font-weight: 400;
+}
+.tab1 {
+  padding-left: 0.5em;
+}
+.tab2 {
+  padding-left: 1.5em;
+}
+.tab3 {
+  padding-left: 2.5em;
+}
+.tab4 {
+  padding-left: 3.5em;
+}
+.tab5 {
+  padding-left: 4.5em;
+}
+.play-button {
+  margin-top: 1rem;
+  padding: 0.6rem 2.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+  color: black;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+}
+.play-button:hover {
+  transform: scale(1.05);
+}
+.play-button h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+.controller a {
+  color: white;
+  margin-top: 2rem;
+}
