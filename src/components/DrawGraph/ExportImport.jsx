@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import { useState, useReducer } from "react";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import Snackbar from "@mui/material/Snackbar";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -9,29 +9,37 @@ export default function ExportImport({ graphData, setGraph }) {
   const [showImport, setShowImport] = useReducer((st) => !st, false);
   const [importText, setImportText] = useState("");
   return (
-    <div className="import-export">
-      <div className="export-name" onClick={() => setShowImport()}>
+    <div className="import-export rounded-lg h-full w-full">
+      {/* Export */}
+      <div
+        className="flex items-center justify-center bg-blue-900 text-white px-2 py-0.5 rounded-t-md"
+        onClick={() => setShowImport()}
+      >
         {showImport ? (
           <ArrowDropDownIcon />
         ) : (
-          <CheckCircleIcon
-            style={{ fontSize: "1.1rem", marginLeft: "0.2rem" }}
-          />
+          <CheckCircleIcon className="text-lg" />
         )}
-        <h2>Export</h2>
+        <h2 className="flex-grow text-sm font-normal">Export</h2>
+        <FileCopyIcon
+          className="opacity-25 hover:opacity-80"
+          onClick={() => {
+            navigator.clipboard.writeText(
+              JSON.stringify(graphData, null, "\t")
+            );
+            setCopyAlertOpen(true);
+          }}
+        />
       </div>
+
+      {/* Export content */}
       {!showImport && (
-        <div className="export-box">
-          <FileCopyIcon
-            className="copy-icon"
-            onClick={() => {
-              navigator.clipboard.writeText(
-                JSON.stringify(graphData, null, "\t")
-              );
-              setCopyAlertOpen(true);
-            }}
+        <div className="export-box h-full bg-white text-black">
+          <textarea
+            className="resize-none outline-none h-full w-full p-2 rounded-b-md"
+            value={JSON.stringify(graphData, null, "\t")}
+            readOnly
           />
-          <textarea value={JSON.stringify(graphData, null, "\t")} readOnly />
           <Snackbar
             anchorOrigin={{ vertical: "top", horizontal: "right" }}
             autoHideDuration={1500}
@@ -41,35 +49,40 @@ export default function ExportImport({ graphData, setGraph }) {
           />
         </div>
       )}
-      <div
-        className="import-name"
+
+      {/* Import */}
+      <button
+        className="flex items-center h-fit justify-center bg-blue-900 text-white px-2 py-1 rounded-b-md"
         onClick={() => setShowImport()}
         style={{ borderRadius: `${showImport ? "0" : "0 0 5px 5px"}` }}
       >
         {showImport ? (
-          <CheckCircleIcon
-            style={{ fontSize: "1.1rem", marginLeft: "0.2rem" }}
-          />
+          <CheckCircleIcon className="text-lg" />
         ) : (
           <ArrowDropDownIcon />
         )}
-        <h2>Import</h2>
-      </div>
+        Import
+      </button>
+
+      {/* Import content */}
       {showImport && (
-        <div className="import-box">
+        <div className="import-box h-full w-full bg-white text-black">
           <textarea
+            className="resize-none outline-none h-full w-full p-2 rounded-b-md"
             value={importText}
             onChange={(e) => setImportText(e.target.value)}
           />
         </div>
       )}
+
+      {/* Submit button */}
       {showImport && (
-        <div
-          className="import-button"
+        <button
+          className=" bg-blue-300 text-black rounded-b-md py-1 cursor-pointer"
           onClick={() => setGraph(JSON.parse(importText))}
         >
           Submit
-        </div>
+        </button>
       )}
     </div>
   );

@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function NodeDrawn({
   position,
   id,
@@ -14,7 +12,7 @@ export default function NodeDrawn({
         e.stopPropagation();
         handleClick(id);
       }}
-      className="node"
+      className="cursor-pointer"
       style={{ cursor: `${isDragged ? "move" : ""}` }}
     >
       <circle

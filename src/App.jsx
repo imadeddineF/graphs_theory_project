@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   const [showTutorial, setShowTutorial] = useState(true);
   return (
-    <div className="App">
+    <div className="min-h-screen">
       {showTutorial ? (
         <Tutorial close={() => setShowTutorial(false)} />
       ) : (

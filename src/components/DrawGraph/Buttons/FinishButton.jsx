@@ -1,9 +1,10 @@
-import React from "react";
-
 export default function FinishButton({ finish }) {
   return (
-    <div className="draw-graph-button" onClick={finish}>
-      <h3>Finish</h3>
-    </div>
+    <button
+      className="bg-[#112d4e] px-5 py-3 rounded-lg flex items-center gap-2 hover:bg-[#033369] transition-all duration-300 text-white font-bold"
+      onClick={finish}
+    >
+      Finish
+    </button>
   );
 }

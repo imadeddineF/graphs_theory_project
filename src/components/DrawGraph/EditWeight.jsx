@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 export default function EditWeight({

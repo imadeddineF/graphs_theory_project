@@ -14,9 +14,8 @@ import Footer from "./Footer";
 import Reproductor from "./Reproductor/Reproductor";
 import AlgorithmsController from "./Algorithms/AlgorithmsController";
 import LogData from "./LogData/LogData";
-import Header from "./Header/Header";
+import Header from "./Header";
 import SnackbarAlert from "./Common/SnackbarAlert";
-import "./Main.css";
 
 function vizDataReducer(state, event) {
   switch (event.name) {
@@ -133,73 +132,86 @@ export default function Main() {
   const [error, setError] = useState();
   return (
     <>
-      <main>
-        <Header
-          setShowDrawGraph={setShowDrawGraph}
-          setShowSelectGraph={setShowSelectGraph}
-          setOpenError={setOpenError}
-          setError={setError}
-          isPlaying={isPlaying}
-        />
-        <Menu setCurrentAlgorithm={setCurrentAlgorithm} />
-        <div className="canvas" ref={canvasRef}>
-          <svg>
-            {Object.entries(graphData.edges).map((element) => {
-              const idx = element[0];
-              const edge = element[1];
-              return (
-                <Edge
-                  key={idx}
-                  id={idx}
-                  edge={edge}
-                  position={{
-                    x1: graphData.nodes[edge.u].x + addPos.x,
-                    y1: graphData.nodes[edge.u].y + addPos.y,
-                    x2: graphData.nodes[edge.v].x + addPos.x,
-                    y2: graphData.nodes[edge.v].y + addPos.y,
-                  }}
-                  isWeighted={graphData.isWeighted}
-                  isDirected={graphData.isDirected}
-                  isCurved={findEdgeId(edge.v, edge.u) !== undefined}
-                  highlight={vizData.edges[idx]}
-                />
-              );
-            })}
-            {Object.entries(graphData.nodes).map((element) => {
-              const idx = element[0];
-              const node = element[1];
-              return (
-                <Node
-                  key={idx}
-                  id={idx}
-                  position={{ x: node.x + addPos.x, y: node.y + addPos.y }}
-                  highlight={vizData.nodes[idx]}
-                  tag={tagData[idx]}
-                />
-              );
-            })}
-          </svg>
+      <Header
+        setShowDrawGraph={setShowDrawGraph}
+        setShowSelectGraph={setShowSelectGraph}
+        setOpenError={setOpenError}
+        setError={setError}
+        isPlaying={isPlaying}
+      />
+
+      <main className="grid grid-cols-12 min-h-screen">
+        <div className="col-span-2">
+          <Menu setCurrentAlgorithm={setCurrentAlgorithm} />
         </div>
-        <AlgorithmsController
-          currentAlgorithm={currentAlgorithm}
-          vizNode={vizNode}
-          vizEdge={vizEdge}
-          graphData={graphData}
-          delayTime={1000 - speed}
-          isPlaying={isPlaying}
-          setIsPlaying={setIsPlaying}
-          printLog={printLog}
-          setTag={setTag}
-        />
-        <Reproductor speed={speed} setSpeed={setSpeed} />
-        <LogData logdata={logdata} />
-        <Footer />
-        <SnackbarAlert
-          openError={openError}
-          setOpenError={setOpenError}
-          error={error}
-        />
+
+        <div className="col-span-8 border-2 flex flex-col gap-2">
+          {/* Drawing area */}
+          <div
+            className="h-full w-full flex justify-center items-center border-2 border-red-500"
+            ref={canvasRef}
+          >
+            <svg className="w-full h-full">
+              {Object.entries(graphData.edges).map((element) => {
+                const idx = element[0];
+                const edge = element[1];
+                return (
+                  <Edge
+                    key={idx}
+                    id={idx}
+                    edge={edge}
+                    position={{
+                      x1: graphData.nodes[edge.u].x + addPos.x,
+                      y1: graphData.nodes[edge.u].y + addPos.y,
+                      x2: graphData.nodes[edge.v].x + addPos.x,
+                      y2: graphData.nodes[edge.v].y + addPos.y,
+                    }}
+                    isWeighted={graphData.isWeighted}
+                    isDirected={graphData.isDirected}
+                    isCurved={findEdgeId(edge.v, edge.u) !== undefined}
+                    highlight={vizData.edges[idx]}
+                  />
+                );
+              })}
+              {Object.entries(graphData.nodes).map((element) => {
+                const idx = element[0];
+                const node = element[1];
+                return (
+                  <Node
+                    key={idx}
+                    id={idx}
+                    position={{ x: node.x + addPos.x, y: node.y + addPos.y }}
+                    highlight={vizData.nodes[idx]}
+                    tag={tagData[idx]}
+                  />
+                );
+              })}
+            </svg>
+          </div>
+          <Reproductor speed={speed} setSpeed={setSpeed} />
+          <LogData logdata={logdata} />
+          <SnackbarAlert
+            openError={openError}
+            setOpenError={setOpenError}
+            error={error}
+          />
+        </div>
+
+        <div className="col-span-2 bg-[#3f72af] h-full">
+          <AlgorithmsController
+            currentAlgorithm={currentAlgorithm}
+            vizNode={vizNode}
+            vizEdge={vizEdge}
+            graphData={graphData}
+            delayTime={1000 - speed}
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            printLog={printLog}
+            setTag={setTag}
+          />
+        </div>
       </main>
+
       {showSelectGraph && (
         <SelectGraph
           sendGraph={setGraphData}
@@ -219,6 +231,7 @@ export default function Main() {
           }}
         />
       )}
+      <Footer />
     </>
   );
 }

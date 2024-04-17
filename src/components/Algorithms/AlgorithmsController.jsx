@@ -30,6 +30,8 @@ export default function AlgorithmsController(props) {
     }
   }
   return (
-    <div className="algorithm">{getAlgorithm(props.currentAlgorithm)}</div>
+    <div className="algorithm h-full">
+      {getAlgorithm(props.currentAlgorithm)}
+    </div>
   );
 }

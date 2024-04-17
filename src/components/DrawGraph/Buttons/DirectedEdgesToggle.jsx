@@ -1,10 +1,9 @@
-import React from "react";
 import Switch from "@mui/material/Switch";
 
 export default function DirectedEdgesToggle({ isDirected, setIsDirected }) {
   return (
-    <div className="draw-graph-checkbox grid-right">
-      <h3>Directed edges</h3>
+    <div className=" flex items-center gap-2 text-white font-bold">
+      Directed edges
       <Switch
         checked={isDirected}
         onChange={(e) => {

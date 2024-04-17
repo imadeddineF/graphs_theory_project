@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function EdgeDrawn({
   id,
   edge,
@@ -53,6 +51,7 @@ export default function EdgeDrawn({
     t ** 2 * position.y2;
   const angle =
     (Math.atan2(position.y2 - tempY, position.x2 - tempX) * 180) / Math.PI;
+
   return (
     <g
       onMouseDown={(e) => {
@@ -63,7 +62,7 @@ export default function EdgeDrawn({
         e.stopPropagation();
         handleClick(id, "double");
       }}
-      className="edge"
+      className=" cursor-pointer"
     >
       {/* Straight lines */}
       {!isCurved && (

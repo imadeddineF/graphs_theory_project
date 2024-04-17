@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useRef, useEffect } from "react";
+import { useState, useReducer, useRef, useEffect } from "react";
 import NodeDrawn from "./NodeDrawn";
 import EdgeDrawn from "./EdgeDrawn";
 import EditWeight from "./EditWeight";
@@ -207,129 +207,148 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
 
   return (
     <div className="popup-out">
-      <div className="draw-graph-container popup-in">
-        <Instructions />
-        <svg
-          className="draw-graph"
-          onMouseDown={(event) => {
-            if (currentNode == null && currentEdge == null)
-              createNode(event.nativeEvent.offsetX, event.nativeEvent.offsetY);
-            else clear();
-          }}
-          onMouseMove={(event) => {
-            if (isDragging) {
-              DragNode(event.nativeEvent.offsetX, event.nativeEvent.offsetY);
-            } else {
-              setEdgeVector({
-                x: event.nativeEvent.offsetX,
-                y: event.nativeEvent.offsetY,
-              });
-            }
-          }}
-          onMouseUp={handleMouseUpNode}
-          onKeyDown={(event) => {
-            if (event.code === "Escape") {
-              setCurrentNode(null);
-              setCurrentEdge(null);
-            }
-            if (event.code === "Delete") {
-              if (currentEdge != null) {
-                deleteEdge(currentEdge);
-              }
-              if (currentNode != null) deleteNode(currentNode);
-              setCurrentNode(null);
-              setCurrentEdge(null);
-            }
-          }}
-          tabIndex="0"
-        >
-          {currentNode != null && isDragging === false && (
-            <TemporalEdge
-              x1={graphData.nodes[currentNode].x}
-              y1={graphData.nodes[currentNode].y}
-              x2={edgeVector.x}
-              y2={edgeVector.y}
+      <div className="w-[95%] flex flex-col justify-between min-h-[90%] bg-[#3f72af] rounded-xl p-5 mx-auto my-10">
+        <div className="h-full gap-4 grid grid-cols-12">
+          <div className="col-span-2">
+            <Instructions />
+          </div>
+
+          <div className="col-span-8">
+            <svg
+              className=" outline-none bg-white rounded-xl shadow-md w-full h-full"
+              onMouseDown={(event) => {
+                if (currentNode == null && currentEdge == null)
+                  createNode(
+                    event.nativeEvent.offsetX,
+                    event.nativeEvent.offsetY
+                  );
+                else clear();
+              }}
+              onMouseMove={(event) => {
+                if (isDragging) {
+                  DragNode(
+                    event.nativeEvent.offsetX,
+                    event.nativeEvent.offsetY
+                  );
+                } else {
+                  setEdgeVector({
+                    x: event.nativeEvent.offsetX,
+                    y: event.nativeEvent.offsetY,
+                  });
+                }
+              }}
+              onMouseUp={handleMouseUpNode}
+              onKeyDown={(event) => {
+                if (event.code === "Escape") {
+                  setCurrentNode(null);
+                  setCurrentEdge(null);
+                }
+                if (event.code === "Delete") {
+                  if (currentEdge != null) {
+                    deleteEdge(currentEdge);
+                  }
+                  if (currentNode != null) deleteNode(currentNode);
+                  setCurrentNode(null);
+                  setCurrentEdge(null);
+                }
+              }}
+              tabIndex="0"
+            >
+              {currentNode != null && isDragging === false && (
+                <TemporalEdge
+                  x1={graphData.nodes[currentNode].x}
+                  y1={graphData.nodes[currentNode].y}
+                  x2={edgeVector.x}
+                  y2={edgeVector.y}
+                />
+              )}
+              {Object.entries(graphData.edges).map((element) => {
+                const idx = element[0];
+                const edge = element[1];
+                return (
+                  <EdgeDrawn
+                    key={idx}
+                    id={idx}
+                    edge={edge}
+                    currentEdge={currentEdge}
+                    position={{
+                      x1: graphData.nodes[edge.u].x,
+                      y1: graphData.nodes[edge.u].y,
+                      x2: graphData.nodes[edge.v].x,
+                      y2: graphData.nodes[edge.v].y,
+                    }}
+                    setCurrentEdge={setCurrentEdge}
+                    handleClick={handleClickEdge}
+                    isWeighted={graphData.isWeighted}
+                    isDirected={graphData.isDirected}
+                    isCurved={findEdge(edge.v, edge.u) !== undefined}
+                  />
+                );
+              })}
+              {Object.entries(graphData.nodes).map((element) => {
+                const idx = element[0];
+                const node = element[1];
+                return (
+                  <NodeDrawn
+                    key={idx}
+                    id={idx}
+                    position={node}
+                    handleClick={handleClickNode}
+                    currentNode={currentNode}
+                    isDragged={isDragging && idx === currentNode}
+                  />
+                );
+              })}
+            </svg>
+            <SnackbarAlert
+              openError={openError}
+              setOpenError={setOpenError}
+              error={errorMessage}
             />
-          )}
-          {Object.entries(graphData.edges).map((element) => {
-            const idx = element[0];
-            const edge = element[1];
-            return (
-              <EdgeDrawn
-                key={idx}
-                id={idx}
-                edge={edge}
+            {showEditWeight && graphData.isWeighted && (
+              <EditWeight
                 currentEdge={currentEdge}
-                position={{
-                  x1: graphData.nodes[edge.u].x,
-                  y1: graphData.nodes[edge.u].y,
-                  x2: graphData.nodes[edge.v].x,
-                  y2: graphData.nodes[edge.v].y,
-                }}
                 setCurrentEdge={setCurrentEdge}
-                handleClick={handleClickEdge}
-                isWeighted={graphData.isWeighted}
-                isDirected={graphData.isDirected}
-                isCurved={findEdge(edge.v, edge.u) !== undefined}
+                handleSubmit={editWeight}
               />
-            );
-          })}
-          {Object.entries(graphData.nodes).map((element) => {
-            const idx = element[0];
-            const node = element[1];
-            return (
-              <NodeDrawn
-                key={idx}
-                id={idx}
-                position={node}
-                handleClick={handleClickNode}
-                currentNode={currentNode}
-                isDragged={isDragging && idx === currentNode}
-              />
-            );
-          })}
-        </svg>
-        <SnackbarAlert
-          openError={openError}
-          setOpenError={setOpenError}
-          error={errorMessage}
-        />
-        {showEditWeight && graphData.isWeighted && (
-          <EditWeight
-            currentEdge={currentEdge}
-            setCurrentEdge={setCurrentEdge}
-            handleSubmit={editWeight}
-          />
-        )}
-        <ExportImport graphData={graphData} setGraph={setGraph} />
-        <BackButton close={close} />
-        <WeightedEdgesToggle
-          isWeighted={graphData.isWeighted}
-          setIsWeighted={(checked) =>
-            updateGraphData({ name: "set-isWeighted", value: checked })
-          }
-        />
-        <FinishButton
-          finish={() => {
-            sendGraph(graphData);
-            close();
-          }}
-        />
-        <DirectedEdgesToggle
-          isDirected={graphData.isDirected}
-          setIsDirected={(checked) => {
-            //If it has double edge throw error when trying to change to undirected
-            if (hasDoubleEdge() && checked === false) {
-              setErrorMessage(
-                "There is a double edge, graph can't be undirected until double edges are removed"
-              );
-              setOpenError(true);
-              return;
+            )}
+          </div>
+
+          <div className="col-span-2">
+            <ExportImport graphData={graphData} setGraph={setGraph} />
+          </div>
+        </div>
+
+        <div className="items-center mt-8 flex justify-between w-full">
+          <BackButton close={close} />
+          <WeightedEdgesToggle
+            isWeighted={graphData.isWeighted}
+            setIsWeighted={(checked) =>
+              updateGraphData({ name: "set-isWeighted", value: checked })
             }
-            updateGraphData({ name: "set-isDirected", value: checked });
-          }}
-        />
-        <NewButton resetGraph={() => setGraph(blankGraph)} />
+          />
+          <FinishButton
+            finish={() => {
+              sendGraph(graphData);
+              close();
+            }}
+          />
+          <DirectedEdgesToggle
+            isDirected={graphData.isDirected}
+            setIsDirected={(checked) => {
+              //If it has double edge throw error when trying to change to undirected
+              if (hasDoubleEdge() && checked === false) {
+                setErrorMessage(
+                  "There is a double edge, graph can't be undirected until double edges are removed"
+                );
+                setOpenError(true);
+                return;
+              }
+              updateGraphData({ name: "set-isDirected", value: checked });
+            }}
+          />
+          <NewButton resetGraph={() => setGraph(blankGraph)} />
+        </div>
       </div>
     </div>
   );
