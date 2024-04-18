@@ -1,10 +1,7 @@
-import React from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
-const color = "white";
 
 const MenuProps = {
   PaperProps: {
@@ -21,22 +18,21 @@ export default function NodeSelector({ nodes, source, setSource }) {
   };
 
   return (
-    <FormControl
-      style={{ margin: "8px", minWidth: "150px", maxWidth: "200px" }}
-    >
-      <InputLabel style={{ color: color }}>Source</InputLabel>
+    <FormControl className="w-[80%]" style={{ marginTop: "20px" }}>
+      <InputLabel style={{ color: "white", borderColor: "white" }}>
+        Source
+      </InputLabel>
+
       <Select
         style={{
-          "&:before": { borderColor: color },
-          "&:after": { borderColor: color },
-          "&:hover": { borderColor: color },
-          color: color,
+          borderColor: "white",
+          color: "white",
         }}
         value={source}
         onChange={handleChangeSource}
         label="Source"
         MenuProps={MenuProps}
-        inputProps={{ style: { fill: color } }}
+        inputProps={{ style: { fill: "white" } }}
       >
         {nodes.map((node, idx) => (
           <MenuItem key={idx} value={node}>

@@ -3,24 +3,27 @@ import FileCopyIcon from "@mui/icons-material/FileCopy";
 import Snackbar from "@mui/material/Snackbar";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ExportImport({ graphData, setGraph }) {
   const [copyAlertOpen, setCopyAlertOpen] = useState(false);
   const [showImport, setShowImport] = useReducer((st) => !st, false);
   const [importText, setImportText] = useState("");
   return (
-    <div className="import-export rounded-lg h-full w-full">
+    <div className="flex flex-col rounded-lg h-full w-full overflow-hidden">
       {/* Export */}
-      <div
-        className="flex items-center justify-center bg-blue-900 text-white px-2 py-0.5 rounded-t-md"
+      <button
+        className="flex h-fit items-center justify-between bg-[#112e4f] text-white px-2 py-3 hover:bg-[#112e4fd3] rounded-t-md cursor-pointer transition-all duration-300"
         onClick={() => setShowImport()}
       >
-        {showImport ? (
-          <ArrowDropDownIcon />
-        ) : (
-          <CheckCircleIcon className="text-lg" />
-        )}
-        <h2 className="flex-grow text-sm font-normal">Export</h2>
+        <div className="flex items-center gap-2">
+          {showImport ? (
+            <ArrowDropDownIcon />
+          ) : (
+            <CheckCircleIcon className="text-lg" />
+          )}
+          <h2 className="flex-grow text-sm font-normal">Export</h2>
+        </div>
         <FileCopyIcon
           className="opacity-25 hover:opacity-80"
           onClick={() => {
@@ -30,29 +33,37 @@ export default function ExportImport({ graphData, setGraph }) {
             setCopyAlertOpen(true);
           }}
         />
-      </div>
+      </button>
 
       {/* Export content */}
-      {!showImport && (
-        <div className="export-box h-full bg-white text-black">
-          <textarea
-            className="resize-none outline-none h-full w-full p-2 rounded-b-md"
-            value={JSON.stringify(graphData, null, "\t")}
-            readOnly
-          />
-          <Snackbar
-            anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            autoHideDuration={1500}
-            open={copyAlertOpen}
-            onClose={() => setCopyAlertOpen(false)}
-            message="Copied to clipboard!"
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {!showImport && (
+          <motion.div
+            initial={{ opacity: 0, scaleY: 0.8 }}
+            animate={{ opacity: 1, scaleY: 1 }}
+            exit={{ opacity: 0, scaleY: 0.8 }}
+            transition={{ duration: 0.2 }}
+            className="h-full bg-white text-black"
+          >
+            <textarea
+              className="resize-none outline-none h-full w-full p-2 rounded-b-md"
+              value={JSON.stringify(graphData, null, "\t")}
+              readOnly
+            />
+            <Snackbar
+              anchorOrigin={{ vertical: "top", horizontal: "right" }}
+              autoHideDuration={1500}
+              open={copyAlertOpen}
+              onClose={() => setCopyAlertOpen(false)}
+              message="Copied to clipboard!"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Import */}
       <button
-        className="flex items-center h-fit justify-center bg-blue-900 text-white px-2 py-1 rounded-b-md"
+        className="flex items-center h-fit gap-2 bg-[#112e4f] border-t-[1px] text-white px-2 py-3 rounded-b-md hover:bg-[#112e4fd3] cursor-pointer transition-all duration-300"
         onClick={() => setShowImport()}
         style={{ borderRadius: `${showImport ? "0" : "0 0 5px 5px"}` }}
       >
@@ -65,20 +76,28 @@ export default function ExportImport({ graphData, setGraph }) {
       </button>
 
       {/* Import content */}
-      {showImport && (
-        <div className="import-box h-full w-full bg-white text-black">
-          <textarea
-            className="resize-none outline-none h-full w-full p-2 rounded-b-md"
-            value={importText}
-            onChange={(e) => setImportText(e.target.value)}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {showImport && (
+          <motion.div
+            initial={{ opacity: 0, scaleY: 0.8 }}
+            animate={{ opacity: 1, scaleY: 1 }}
+            exit={{ opacity: 0, scaleY: 0.8 }}
+            transition={{ duration: 0.2 }}
+            className="h-full w-full bg-white text-black"
+          >
+            <textarea
+              className="resize-none outline-none h-full w-full p-2 rounded-b-md"
+              value={importText}
+              onChange={(e) => setImportText(e.target.value)}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Submit button */}
       {showImport && (
         <button
-          className=" bg-blue-300 text-black rounded-b-md py-1 cursor-pointer"
+          className="bg-[#91c5f8] text-[#455b7f] rounded-b-md py-3 font-bold cursor-pointer hover:bg-[#91c5f8b8] transition-all duration-200"
           onClick={() => setGraph(JSON.parse(importText))}
         >
           Submit

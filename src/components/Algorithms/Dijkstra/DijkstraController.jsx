@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Dijkstra } from "./Dijkstra";
 import DijkstraPseudocode from "./DijkstraPseudocode";
 import NodeSelector from "../Extra/NodeSelector";
@@ -18,10 +18,12 @@ export default function DijkstraController({
 }) {
   const [source, setSource] = useState("");
   const [focusCodeLine, setFocusCodeLine] = useState();
+
   // Errors
   const [openError, setOpenError] = useState(false);
   const [error, setError] = useState();
   const isBlank = Object.keys(graphData.nodes).length === 0;
+
   function handleClick() {
     if (isPlaying) {
       setOpenError(true);
@@ -69,15 +71,19 @@ export default function DijkstraController({
     return ret;
   }
   return (
-    <div className="controller">
-      <h3>{currentAlgorithm}</h3>
+    <div className="flex flex-col px-2 items-center justify-center">
+      <h3 className="py-4 font-bold text-white">{currentAlgorithm}</h3>
+
       <DijkstraPseudocode focusCodeLine={focusCodeLine} />
+
       <NodeSelector
         nodes={Object.keys(graphData.nodes)}
         source={source}
         setSource={setSource}
       />
+
       <PlayButton handleClick={handleClick} />
+
       <SnackbarAlert
         openError={openError}
         setOpenError={setOpenError}

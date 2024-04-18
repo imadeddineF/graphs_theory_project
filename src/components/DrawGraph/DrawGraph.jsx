@@ -11,8 +11,6 @@ import DirectedEdgesToggle from "./Buttons/DirectedEdgesToggle";
 import NewButton from "./Buttons/NewButton";
 import TemporalEdge from "./TemporalEdge";
 import SnackbarAlert from "../Common/SnackbarAlert";
-import "./DrawGraph.css";
-import "../Common/Extra.css";
 
 function dataReducer(state, event) {
   switch (event.name) {
@@ -99,6 +97,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
       value: { node: { x: posX, y: posY } },
     });
   }
+
   function createEdge(first, second) {
     if (first === second) return;
     //If user tries to add edge to u->v and it already exists
@@ -119,6 +118,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
     });
     if (graphData.isWeighted) handleClickEdge(graphData.topEdge, "double");
   }
+
   function deleteNode(id) {
     Object.entries(graphData.edges).forEach((element) => {
       const key = element[0];
@@ -130,12 +130,14 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
       value: id,
     });
   }
+
   function deleteEdge(id) {
     updateGraphData({
       name: "delete-edge",
       value: id,
     });
   }
+
   function handleClickEdge(id, clicks) {
     setCurrentEdge(id);
     setCurrentNode(null);
@@ -143,6 +145,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
       setShowEditWeight(true);
     }
   }
+
   // Drag and drop functionality
   const dragTimeoutId = useRef("");
   const [isDragging, setIsDragging] = useState(false);
@@ -154,6 +157,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
       clearTimeout(dragTimeoutId.current);
     }
   }
+
   function handleClickNode(id) {
     if (currentNode == null) {
       clear();
@@ -166,32 +170,38 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
       setCurrentNode(null);
     }
   }
+
   function DragNode(posX, posY) {
     updateGraphData({
       name: "edit-node",
       value: { id: currentNode, node: { x: posX, y: posY } },
     });
   }
+
   function DropNode() {
     setCurrentNode(null);
     setIsDragging(false);
   }
+
   function editWeight(id, weight) {
     updateGraphData({
       name: "edit-edge",
       value: { id, weight },
     });
   }
+
   function clear() {
     setCurrentNode(null);
     setCurrentEdge(null);
   }
+
   function setGraph(graph) {
     updateGraphData({
       name: "set-graph",
       value: graph,
     });
   }
+
   function hasDoubleEdge() {
     let ret = false;
     Object.values(graphData.edges).forEach(({ u, v }) => {
@@ -199,6 +209,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
     });
     return ret;
   }
+
   function findEdge(u, v) {
     return Object.values(graphData.edges).find(
       (edge) => edge.u === u && edge.v === v
@@ -206,8 +217,8 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
   }
 
   return (
-    <div className="popup-out">
-      <div className="w-[95%] flex flex-col justify-between min-h-[90%] bg-[#3f72af] rounded-xl p-5 mx-auto my-10">
+    <div className="w-screen h-screen fixed top-0 left-0 bg-[#00000080] overflow-auto z-10">
+      <div className="w-[95%] h-full flex flex-col justify-between min-h-[90%] bg-[#3f72af] rounded-xl p-5 mx-auto my-10">
         <div className="h-full gap-4 grid grid-cols-12">
           <div className="col-span-2">
             <Instructions />
@@ -319,7 +330,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
           </div>
         </div>
 
-        <div className="items-center mt-8 flex justify-between w-full">
+        <div className="items-center mt-6 flex justify-between w-full">
           <BackButton close={close} />
           <WeightedEdgesToggle
             isWeighted={graphData.isWeighted}

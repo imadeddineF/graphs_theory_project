@@ -62,15 +62,19 @@ export default function BellmanfordController({
     setError("Graph contains a negative-weight cycle");
   }
   return (
-    <div className="controller">
-      <h3>{currentAlgorithm}</h3>
+    <div className="flex flex-col items-center justify-center px-2">
+      <h3 className="py-4 font-bold text-white">{currentAlgorithm}</h3>
+
       <BellmanfordPseudocode focusCodeLine={focusCodeLine} />
+
       <NodeSelector
         nodes={Object.keys(graphData.nodes)}
         source={source}
         setSource={setSource}
       />
+
       <PlayButton handleClick={handleClick} />
+
       <SnackbarAlert
         openError={openError}
         setOpenError={setOpenError}

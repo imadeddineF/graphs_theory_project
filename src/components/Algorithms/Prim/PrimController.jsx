@@ -57,15 +57,19 @@ export default function PrimController({
     );
   }
   return (
-    <div className="controller">
-      <h3>{currentAlgorithm}</h3>
+    <div className="flex flex-col px-2 items-center justify-center">
+      <h3 className="py-4 font-bold text-white">{currentAlgorithm}</h3>
+
       <PrimPseudocode focusCodeLine={focusCodeLine} />
+
       <NodeSelector
         nodes={Object.keys(graphData.nodes)}
         source={source}
         setSource={setSource}
       />
+
       <PlayButton handleClick={handleClick} />
+
       <SnackbarAlert
         openError={openError}
         setOpenError={setOpenError}

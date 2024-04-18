@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import BackButton from "./Buttons/BackButton";
 import SelectButton from "./Buttons/SelectButton";
 import Card from "./Card";
@@ -8,7 +8,7 @@ export default function SelectGraph({ close, sendGraph }) {
   const [graphData, setGraphData] = useState(null);
   const [current, setCurrent] = useState(null);
   return (
-    <div className="popup-out">
+    <div className="w-screen h-screen fixed top-0 left-0 bg-[#00000080] overflow-auto z-10">
       <div className=" bg-[#3f72af] min-h-[90%] w-[90%] m-auto mt-5 text-white rounded-md">
         <h2 className="p-5 font-bold text-[24px]">Graph Examples</h2>
 

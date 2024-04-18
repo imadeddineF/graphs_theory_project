@@ -1,31 +1,29 @@
-import React from "react";
-
 export default function BfsPseudocode({ focusCodeLine }) {
   function highlight(id) {
     return { backgroundColor: focusCodeLine === id ? "#06121f" : "" };
   }
   return (
-    <ol className="pseudocode">
-      <li className="tab1">Recursive Dfs: Call DFS(s)</li>
-      <li className="tab1">
+    <ul className="bg-[#112d4e] w-full rounded-lg py-5 px-2 text-[14px] text-white flex flex-col gap-2">
+      <li className="ml-2">Recursive Dfs: Call DFS(s)</li>
+      <li className="ml-2">
         <strong>function</strong> DFS(u) &#123;
       </li>
-      <li className="tab2" style={highlight(3)}>
+      <li className="ml-6" style={highlight(3)}>
         <strong>if</strong> ( u is visited )
       </li>
-      <li className="tab3" style={highlight(3)}>
+      <li className="ml-10" style={highlight(3)}>
         <strong>return</strong>
       </li>
-      <li className="tab2" style={highlight(5)}>
+      <li className="ml-6" style={highlight(5)}>
         visit[u] = 1
       </li>
-      <li className="tab2">
+      <li className="ml-6">
         <strong>for</strong> each v &#8712; G.Adj[u]
       </li>
-      <li className="tab3" style={highlight(7)}>
+      <li className="ml-10" style={highlight(7)}>
         DFS(v)
       </li>
-      <li className="tab1">&#125;</li>
-    </ol>
+      <li className="ml-2">&#125;</li>
+    </ul>
   );
 }

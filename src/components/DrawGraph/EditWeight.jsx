@@ -12,7 +12,7 @@ export default function EditWeight({
   }, []);
   return (
     <form
-      className="edit-weight-form"
+      className=""
       onSubmit={(e) => {
         e.preventDefault();
         if (newWeight.current.value === "") return;

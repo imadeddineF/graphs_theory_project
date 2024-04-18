@@ -1,4 +1,3 @@
-import React from "react";
 import BfsController from "./BFS/BfsController";
 import DijkstraController from "./Dijkstra/DijkstraController";
 import DfsController from "./DFS/DfsController";
@@ -6,7 +5,6 @@ import TopsortController from "./Topsort/TopsortController";
 import BellmanfordController from "./Bellmanford/BellmanfordController";
 import KruskalController from "./Kruskal/KruskalController";
 import PrimController from "./Prim/PrimController";
-import "./AlgorithmsController.css";
 
 export default function AlgorithmsController(props) {
   function getAlgorithm(currentAlgorithm) {
@@ -29,9 +27,5 @@ export default function AlgorithmsController(props) {
         return;
     }
   }
-  return (
-    <div className="algorithm h-full">
-      {getAlgorithm(props.currentAlgorithm)}
-    </div>
-  );
+  return <div className="h-full">{getAlgorithm(props.currentAlgorithm)}</div>;
 }

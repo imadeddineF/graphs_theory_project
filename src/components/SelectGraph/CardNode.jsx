@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function NodeDrawn({ position, id }) {
   return (
     <g transform={`translate(${position.x},${position.y})`}>

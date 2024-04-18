@@ -1,4 +1,3 @@
-import React from "react";
 import BackspaceIcon from "@mui/icons-material/Backspace";
 
 export default function Back({ close }) {

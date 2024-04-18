@@ -52,10 +52,13 @@ export default function KruskalController({
     );
   }
   return (
-    <div className="controller">
-      <h3>{currentAlgorithm}</h3>
+    <div className="flex flex-col px-2 items-center justify-center">
+      <h3 className="py-4 font-bold text-white">{currentAlgorithm}</h3>
+
       <KruskalPseudocode focusCodeLine={focusCodeLine} />
+
       <PlayButton handleClick={handleClick} />
+
       <SnackbarAlert
         openError={openError}
         setOpenError={setOpenError}
