@@ -18,11 +18,11 @@ export default function Header({
     if (button === "draw") setShowDrawGraph(true);
   }
   return (
-    <header className="w-full top-0 p-3 flex justify-between items-center bg-[#3f72af] text-white border-b-[1px] border-b-[#06121f]">
-      <h1 className="font-bold text-[20px]">Graph Algorithms Visualizer</h1>
+    <header className="w-full top-0 p-4 flex justify-between items-center bg-primary3 text-white border-b-[1px] border-b-primary1">
+      <h1 className="font-semibold text-[24px]">Graph Algorithms Visualizer</h1>
       <div className="flex items-center gap-4">
         <button
-          className="flex items-center gap-2 bg-white text-[#112d4e] rounded-md px-4 py-1"
+          className="flex items-center gap-2 bg-primary5 text-white rounded-md px-4 py-1"
           onClick={() => handleClick("select")}
         >
           <h2>Select graph</h2>
@@ -32,7 +32,7 @@ export default function Header({
         </button>
 
         <button
-          className="flex items-center gap-2 bg-white text-[#112d4e] rounded-md px-4 py-1"
+          className="flex items-center gap-2 bg-primary5 text-white rounded-md px-4 py-1"
           onClick={() => handleClick("draw")}
         >
           <h2>Draw graph</h2>

@@ -8,6 +8,7 @@ export default function SpeedSlider({ speed, setSpeed }) {
   const sliderStyles = {
     root: {
       width: 300,
+      color: "#12f5f5",
     },
     thumb: {
       height: 24,
@@ -38,8 +39,8 @@ export default function SpeedSlider({ speed, setSpeed }) {
       value={speed}
       onChange={handleChange}
       aria-labelledby="continuous-slider"
-      min={200}
-      max={900}
+      min={50}
+      max={500}
       step={1}
       sx={sliderStyles}
     />

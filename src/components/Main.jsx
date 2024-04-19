@@ -148,10 +148,10 @@ export default function Main() {
         <div className="col-span-8 border-2 flex flex-col gap-2">
           {/* Drawing area */}
           <div
-            className="h-full w-full flex justify-center items-center border-2 border-red-500"
+            className="h-full w-full flex justify-center items-center border-2 border-black"
             ref={canvasRef}
           >
-            <svg className="w-full h-full">
+            <svg className="w-full h-full bg-playGroundBg">
               {Object.entries(graphData.edges).map((element) => {
                 const idx = element[0];
                 const edge = element[1];
@@ -197,7 +197,7 @@ export default function Main() {
           />
         </div>
 
-        <div className="col-span-2 bg-[#3f72af] h-full">
+        <div className="col-span-2 bg-primary3 h-full">
           <AlgorithmsController
             currentAlgorithm={currentAlgorithm}
             vizNode={vizNode}
@@ -231,6 +231,7 @@ export default function Main() {
           }}
         />
       )}
+
       <Footer />
     </>
   );

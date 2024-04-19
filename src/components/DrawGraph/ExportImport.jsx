@@ -13,7 +13,7 @@ export default function ExportImport({ graphData, setGraph }) {
     <div className="flex flex-col rounded-lg h-full w-full overflow-hidden">
       {/* Export */}
       <button
-        className="flex h-fit items-center justify-between bg-[#112e4f] text-white px-2 py-3 hover:bg-[#112e4fd3] rounded-t-md cursor-pointer transition-all duration-300"
+        className="flex h-fit items-center justify-between bg-primary2 text-white px-2 py-3 hover:bg-[#112e4fd3] rounded-t-md cursor-pointer transition-all duration-300"
         onClick={() => setShowImport()}
       >
         <div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ export default function ExportImport({ graphData, setGraph }) {
             animate={{ opacity: 1, scaleY: 1 }}
             exit={{ opacity: 0, scaleY: 0.8 }}
             transition={{ duration: 0.2 }}
-            className="h-full bg-white text-black"
+            className="h-full bg-primary5 text-black"
           >
             <textarea
               className="resize-none outline-none h-full w-full p-2 rounded-b-md"
@@ -63,7 +63,7 @@ export default function ExportImport({ graphData, setGraph }) {
 
       {/* Import */}
       <button
-        className="flex items-center h-fit gap-2 bg-[#112e4f] border-t-[1px] text-white px-2 py-3 rounded-b-md hover:bg-[#112e4fd3] cursor-pointer transition-all duration-300"
+        className="flex items-center h-fit gap-2 bg-primary2 border-t-[1px] text-white px-2 py-3 rounded-b-md hover:bg-[#112e4fd3] cursor-pointer transition-all duration-300"
         onClick={() => setShowImport()}
         style={{ borderRadius: `${showImport ? "0" : "0 0 5px 5px"}` }}
       >
@@ -83,7 +83,7 @@ export default function ExportImport({ graphData, setGraph }) {
             animate={{ opacity: 1, scaleY: 1 }}
             exit={{ opacity: 0, scaleY: 0.8 }}
             transition={{ duration: 0.2 }}
-            className="h-full w-full bg-white text-black"
+            className="h-full w-full bg-primary5 text-black"
           >
             <textarea
               className="resize-none outline-none h-full w-full p-2 rounded-b-md"

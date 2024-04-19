@@ -17,7 +17,7 @@ export default function Menu({ setCurrentAlgorithm }) {
     ["Minimum Spanning Trees", ["Kruskal", "Prim"]],
   ];
   return (
-    <div className="bg-[#112e4f] text-white text-left over h-full">
+    <div className="bg-primary2 text-white text-left over h-full">
       <h2 className="text-[20px] border-b-[1px] m-0 py-4 px-3">Algorithms</h2>
       {/* Elementary Graph Algorithms */}
       <SubMenu

@@ -9,8 +9,8 @@ export default function SubMenu({ title, list, setCurrentAlgorithm }) {
   return (
     <div className="text-[16px]">
       {/* Title */}
-      <div
-        className="py-3 z-50 px-2 flex items-center justify-between cursor-pointer hover:bg-[#0e253f] transition-all duration-300"
+      <h2
+        className="py-3 z-50 px-2 flex items-center justify-between cursor-pointer hover:bg-primary2Hover transition-all duration-300"
         style={{ borderBottom: open ? "" : "solid #06121f 1px" }}
         onClick={toggleOpen}
       >
@@ -20,7 +20,7 @@ export default function SubMenu({ title, list, setCurrentAlgorithm }) {
         ) : (
           <ArrowRightIcon style={{ fontSize: "1.5rem" }} />
         )}
-      </div>
+      </h2>
 
       {/* List */}
       <AnimatePresence>
@@ -35,7 +35,7 @@ export default function SubMenu({ title, list, setCurrentAlgorithm }) {
             {list.map((item, id) => (
               <div
                 key={id}
-                className="bg-[#06121f] py-3 px-4 cursor-pointer hover:bg-[#0e253f] transition-all duration-300"
+                className="bg-primary1 py-3 px-4 cursor-pointer hover:bg-primary1hover transition-all duration-300"
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentAlgorithm(item);

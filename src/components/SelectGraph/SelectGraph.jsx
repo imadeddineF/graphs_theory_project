@@ -9,7 +9,7 @@ export default function SelectGraph({ close, sendGraph }) {
   const [current, setCurrent] = useState(null);
   return (
     <div className="w-screen h-screen fixed top-0 left-0 bg-[#00000080] overflow-auto z-10">
-      <div className=" bg-[#3f72af] min-h-[90%] w-[90%] m-auto mt-5 text-white rounded-md">
+      <div className=" bg-primary3 min-h-[90%] w-[90%] m-auto mt-5 text-white rounded-md">
         <h2 className="p-5 font-bold text-[24px]">Graph Examples</h2>
 
         <div className="p-3 flex flex-wrap overflow-y-scroll justify-around gap-x-8 gap-y-8 ">

@@ -218,7 +218,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
 
   return (
     <div className="w-screen h-screen fixed top-0 left-0 bg-[#00000080] overflow-auto z-10">
-      <div className="w-[95%] h-full flex flex-col justify-between min-h-[90%] bg-[#3f72af] rounded-xl p-5 mx-auto my-10">
+      <div className="w-[95%] h-full flex flex-col justify-between min-h-[90%] bg-primary3 rounded-xl p-5 mx-auto my-10">
         <div className="h-full gap-4 grid grid-cols-12">
           <div className="col-span-2">
             <Instructions />
@@ -226,7 +226,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
 
           <div className="col-span-8">
             <svg
-              className=" outline-none bg-white rounded-xl shadow-md w-full h-full"
+              className=" outline-none bg-primary5 rounded-xl shadow-md w-full h-full"
               onMouseDown={(event) => {
                 if (currentNode == null && currentEdge == null)
                   createNode(
