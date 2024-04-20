@@ -1,21 +1,26 @@
 export default function Instructions() {
   return (
-    <div className="bg-[#dbe2ef] h-full rounded-lg px-4 py-6 shadow-md">
+    <div className="bg-instructions h-full rounded-lg px-4 py-6 shadow-md">
       <h2 className="text-center mb-3 font-bold text-[18px]">Instructions</h2>
       <ul className="flex flex-col gap-3 text-[14px] text-[#384259]">
-        <li>1- Click in an empty space to create a node</li>
-        <li>2- Click a node and then click another to create an edge</li>
-        <li>3- Drag nodes by pressing and releasing</li>
+        <li>1- Cliquez dans un espace vide pour créer un sommet</li>
         <li>
-          4- Click a node or an edge and then press "Delete" to remove them
+          2- Cliquez sur un sommet, puis cliquez sur un autre pour créer une
+          arête
+        </li>
+        <li>3- Faites glisser les sommets en appuyant et en relâchant</li>
+        <li>
+          4- Cliquez sur un sommet ou une arête, puis appuyez sur « Supprimer »
+          pour les supprimer
         </li>
         <li>
-          5- Double click an edge to change its weight (if weights are
-          activated)
+          5- Double-cliquez sur une arête pour changer son poids (si les poids
+          sont activés)
         </li>
         <li>
-          6- Copy the export data and keep it, later on you can paste it into
-          the import box and recover your graph
+          6- Copiez les données d'exportation et conservez-les, plus tard vous
+          pourrez les coller dans la boîte d'importation et récupérer votre
+          graphe
         </li>
       </ul>
     </div>

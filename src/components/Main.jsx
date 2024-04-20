@@ -140,15 +140,15 @@ export default function Main() {
         isPlaying={isPlaying}
       />
 
-      <main className="grid grid-cols-12 min-h-screen">
+      <main className="grid grid-cols-12">
         <div className="col-span-2">
           <Menu setCurrentAlgorithm={setCurrentAlgorithm} />
         </div>
 
-        <div className="col-span-8 border-2 flex flex-col gap-2">
+        <div className="col-span-8 flex flex-col">
           {/* Drawing area */}
           <div
-            className="h-full w-full flex justify-center items-center border-2 border-black"
+            className="h-[700px] w-full flex justify-center items-center"
             ref={canvasRef}
           >
             <svg className="w-full h-full bg-playGroundBg">
@@ -188,6 +188,7 @@ export default function Main() {
               })}
             </svg>
           </div>
+
           <Reproductor speed={speed} setSpeed={setSpeed} />
           <LogData logdata={logdata} />
           <SnackbarAlert

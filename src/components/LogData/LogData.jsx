@@ -1,6 +1,6 @@
 export default function LogData({ logdata }) {
   return (
-    <div className=" bg-logData border-2 border-blue-700 p-2 h-[1000px]">
+    <div className="bg-logData p-8">
       {logdata
         .slice(0)
         .reverse()

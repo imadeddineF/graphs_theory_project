@@ -56,7 +56,7 @@ export async function Prim(
 
   // Prim starts here
   await delay(50);
-  printLog("Prim algorithm:");
+  printLog("L'algorithm de Prim:");
 
   edges.forEach((edge) => {
     vizEdge(edge.u, edge.v, "transparent", isDirected);
@@ -88,7 +88,7 @@ export async function Prim(
     await delay(delayTime / 5);
     vizNode(u, "blue");
     vizEdge(P[u], u, "blue");
-    printLog(`Add ${u} to spanning tree`);
+    printLog(`Ajouter ${u} à l'arbre couvrant`);
     setFocusCodeLine(9);
     await delay(delayTime);
 
@@ -102,6 +102,6 @@ export async function Prim(
     }
   }
 
-  printLog(`Minimum spanning tree found: Total weight = ${totalWeight}`);
+  printLog(`Arbre couvrant minimal trouvé : Poids total = ${totalWeight}`);
   setIsPlaying(false);
 }

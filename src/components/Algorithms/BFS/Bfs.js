@@ -19,7 +19,7 @@ export async function Bfs(
 
   // BFS starts here
   await delay(50);
-  printLog("Breadth-first search:");
+  printLog("Recherche en largeur:");
 
   const D = []; // Array of distances
   const Q = []; // Queue
@@ -38,7 +38,7 @@ export async function Bfs(
   //Visualization
   setTag(source, 0);
   printLog(
-    `Minimum distance from ${source} to ${source} ->  D[${source}] = ${D[source]}`
+    `La distance minimale de ${source} vers ${source} ->  d(${source}]) = ${D[source]}`
   );
   setFocusCodeLine(4);
   await delay(delayTime);

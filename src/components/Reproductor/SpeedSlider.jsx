@@ -40,7 +40,7 @@ export default function SpeedSlider({ speed, setSpeed }) {
       onChange={handleChange}
       aria-labelledby="continuous-slider"
       min={50}
-      max={500}
+      max={1000}
       step={1}
       sx={sliderStyles}
     />

@@ -3,22 +3,23 @@ import SubMenu from "./SubMenu";
 export default function Menu({ setCurrentAlgorithm }) {
   const algorithms = [
     [
-      "Elementary Graph Algorithms",
-      ["Breadth-first search", "Depth-first search", "Topological sort"],
+      "Algorithmes élémentaires",
+      ["Recherche en largeur", "Recherche en profondeur", "Tri topologique"],
     ],
     [
-      "Single-Source Shortest Paths",
-      [
-        "Breadth-first search",
-        "Dijkstra’s algorithm",
-        "Bellman-Ford algorithm",
-      ],
+      "Chemins les plus courts à partir d'une source unique",
+      ["L'algorithme de Dijkstra", "L'algorithme de Bellman-Ford"],
     ],
-    ["Minimum Spanning Trees", ["Kruskal", "Prim"]],
+    [
+      "Arbres couvrants de poids minimum",
+      ["L'algorithme de Kruskal", "L'algorithme de Prim"],
+    ],
   ];
   return (
     <div className="bg-primary2 text-white text-left over h-full">
-      <h2 className="text-[20px] border-b-[1px] m-0 py-4 px-3">Algorithms</h2>
+      <h2 className="text-[20px] font-medium border-b-[1px] m-0 py-5 px-3">
+        Algorithmes
+      </h2>
       {/* Elementary Graph Algorithms */}
       <SubMenu
         title={algorithms[0][0]}

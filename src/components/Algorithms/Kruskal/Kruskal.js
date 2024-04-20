@@ -17,7 +17,7 @@ export async function Kruskal(
 
   // Kruskal starts here
   await delay(50);
-  printLog("Kruskal: ");
+  printLog("L'algorithme de Kruskal: ");
 
   edges.forEach((edge) => {
     vizEdge(edge.u, edge.v, "transparent", isDirected);
@@ -43,7 +43,7 @@ export async function Kruskal(
     if (find(u) === find(v)) {
       //Visualization
       vizEdge(u, v, "red", isDirected);
-      printLog(`${u} and ${v} are already connected`);
+      printLog(`${u} et ${v} sont déjà connectés`);
       await delay(delayTime);
       vizEdge(u, v, "transparent", isDirected);
     } else {
@@ -62,9 +62,9 @@ export async function Kruskal(
   }
   if (components > 1)
     printLog(
-      `Minimum spanning forest found: Total weight = ${totalWeight} -> Number of Trees = ${components}`
+      `Forêt couvrante minimale trouvée : Poids total = ${totalWeight} -> Nombre d'arbres = ${components}`
     );
-  else printLog(`Minimum spanning tree found: Total weight = ${totalWeight}`);
+  else printLog(`Arbre couvrant minimal trouvé : Poids total = ${totalWeight}`);
 
   setIsPlaying(false);
 

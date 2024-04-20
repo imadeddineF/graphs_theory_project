@@ -9,19 +9,19 @@ import PrimController from "./Prim/PrimController";
 export default function AlgorithmsController(props) {
   function getAlgorithm(currentAlgorithm) {
     switch (currentAlgorithm) {
-      case "Breadth-first search":
+      case "Recherche en largeur":
         return <BfsController {...props} />;
-      case "Dijkstra’s algorithm":
-        return <DijkstraController {...props} />;
-      case "Depth-first search":
+      case "Recherche en profondeur":
         return <DfsController {...props} />;
-      case "Topological sort":
+      case "Tri topologique":
         return <TopsortController {...props} />;
-      case "Bellman-Ford algorithm":
+      case "L'algorithme de Dijkstra":
+        return <DijkstraController {...props} />;
+      case "L'algorithme de Bellman-Ford":
         return <BellmanfordController {...props} />;
-      case "Kruskal":
+      case "L'algorithme de Kruskal":
         return <KruskalController {...props} />;
-      case "Prim":
+      case "L'algorithme de Prim":
         return <PrimController {...props} />;
       default:
         return;

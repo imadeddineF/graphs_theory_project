@@ -18,13 +18,13 @@ export async function Dfs(
 
   // DFS starts here
   await delay(50);
-  printLog("Depth-first search:");
+  printLog("Recherche en profondeur:");
 
   const visit = []; // Visited
   for (let i = 0; i < topNode; i++) {
     visit.push(false);
   }
-  printLog(`Start at node ${source}`);
+  printLog(`Commencer au Sommet ${source}`);
   DfsCall(source, -1);
 
   async function DfsCall(u, parent) {
@@ -34,7 +34,7 @@ export async function Dfs(
     visit[u] = true;
 
     // Visualization
-    printLog(`Node ${u} visited`);
+    printLog(`Sommet ${u} Visité`);
     vizEdge(parent, u, "blue", isDirected);
     vizNode(u, "yellow");
     setFocusCodeLine(5);

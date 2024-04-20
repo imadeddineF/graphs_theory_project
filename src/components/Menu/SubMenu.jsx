@@ -10,7 +10,7 @@ export default function SubMenu({ title, list, setCurrentAlgorithm }) {
     <div className="text-[16px]">
       {/* Title */}
       <h2
-        className="py-3 z-50 px-2 flex items-center justify-between cursor-pointer hover:bg-primary2Hover transition-all duration-300"
+        className="py-4 z-50 px-2 flex items-center justify-between cursor-pointer hover:bg-primary2Hover transition-all duration-300"
         style={{ borderBottom: open ? "" : "solid #06121f 1px" }}
         onClick={toggleOpen}
       >
@@ -35,7 +35,7 @@ export default function SubMenu({ title, list, setCurrentAlgorithm }) {
             {list.map((item, id) => (
               <div
                 key={id}
-                className="bg-primary1 py-3 px-4 cursor-pointer hover:bg-primary1hover transition-all duration-300"
+                className="bg-primary1 py-4 px-4 cursor-pointer hover:bg-primary1hover transition-all duration-300"
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentAlgorithm(item);

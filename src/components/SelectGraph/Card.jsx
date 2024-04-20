@@ -20,9 +20,10 @@ export default function Card({
     setGraphData(graphData);
   }
   const selectedStyle = { border: selected ? "solid #F54748 3px" : "" };
+
   return (
     <div
-      className="card bg-[#f9f7f7] rounded-md w-[380px] h-[200px] shadow-md overflow-hidden cursor-pointer transition-all duration-300  hover:scale-105 hover:shadow-lg"
+      className="card bg-white rounded-md w-full h-[200px] shadow-md overflow-hidden cursor-pointer transition-all duration-300  hover:scale-105 hover:shadow-lg"
       onClick={select}
       style={selectedStyle}
     >

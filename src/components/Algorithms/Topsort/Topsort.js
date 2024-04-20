@@ -18,7 +18,7 @@ export async function Topsort(
 
   // Topsort starts here
   await delay(50);
-  printLog("Topological sort:");
+  printLog("Tri topologique:");
 
   const color = []; // Visited
   const topSort = [];
@@ -44,8 +44,8 @@ export async function Topsort(
 
       //Visualization
       isNotDag();
-      printLog("Graph is not a DAG");
-      printLog("Topological sort not possible");
+      printLog("Le graphe n'est pas un DAG");
+      printLog("Tri topologique non possible");
       vizEdge(parent, u, "red", isDirected);
       setFocusCodeLine(6);
       return;
@@ -53,7 +53,7 @@ export async function Topsort(
     color[u] = 1;
 
     //Visualization
-    printLog(`Temporary mark on ${u}`);
+    printLog(`Marque temporaire sur ${u}`);
     vizNode(u, "green");
     vizEdge(parent, u, "green", isDirected);
     setFocusCodeLine(8);
@@ -81,8 +81,8 @@ export async function Topsort(
 
     //Visualization
     setTag(u, time--);
-    printLog(`Permanent mark on ${u}`);
-    printLog(`Current Topological sort: ${topSort}`);
+    printLog(`Marque permanente sur ${u}`);
+    printLog(`Tri topologique actuel : ${topSort}`);
     vizNode(u, "blue");
     vizEdge(parent, u, "blue", isDirected);
     setFocusCodeLine(11);
@@ -91,7 +91,7 @@ export async function Topsort(
     await delay(delayTime / 5);
   }
   if (!stop) {
-    printLog(`Final topological sort: ${topSort} (One possible sort)`);
+    printLog(`Tri topologique final : ${topSort} (Un tri possible)`);
   }
   setIsPlaying(false);
 }

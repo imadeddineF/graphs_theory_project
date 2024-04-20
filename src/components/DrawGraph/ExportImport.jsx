@@ -46,7 +46,7 @@ export default function ExportImport({ graphData, setGraph }) {
             className="h-full bg-primary5 text-black"
           >
             <textarea
-              className="resize-none outline-none h-full w-full p-2 rounded-b-md"
+              className="resize-none outline-none h-full w-full p-2"
               value={JSON.stringify(graphData, null, "\t")}
               readOnly
             />
@@ -86,7 +86,7 @@ export default function ExportImport({ graphData, setGraph }) {
             className="h-full w-full bg-primary5 text-black"
           >
             <textarea
-              className="resize-none outline-none h-full w-full p-2 rounded-b-md"
+              className="resize-none outline-none h-full w-full p-2"
               value={importText}
               onChange={(e) => setImportText(e.target.value)}
             />

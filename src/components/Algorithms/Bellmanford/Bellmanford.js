@@ -20,7 +20,7 @@ export async function Bellmanford(
 
   // Bellmanford starts here
   await delay(50);
-  printLog("Bellman-Ford:");
+  printLog("L'algorithme de Bellman-Ford:");
 
   const D = []; // Distance
   const P = []; // Parents
@@ -66,7 +66,7 @@ export async function Bellmanford(
 
       //Visualization
       setFocusCodeLine(9);
-      printLog(`Graph has negative-weight cycle`);
+      printLog(`Le graphe contient un cycle de poids négatif`);
       break;
     }
   }
@@ -86,7 +86,7 @@ export async function Bellmanford(
       vizNode(v, "green");
       vizEdge(u, v, "green", isDirected);
       printLog(
-        `Relaxed distance of node ${v} with edge ${u}->${v} : New distance D[${v}] = ${D[v]}`
+        `Distance relaxée du sommet ${v} avec l'arête  ${u}->${v} : Nouvelle distance D(${v}) = ${D[v]}`
       );
       setFocusCodeLine(6);
       return true;

@@ -56,7 +56,7 @@ export async function Dijkstra(
 
   // Dijkstra starts here
   await delay(50);
-  printLog("Dijkstra’s algorithm:");
+  printLog("L'algorithme de Dijkstra:");
 
   const D = []; // Array of distances
   const Q = new PriorityQueue(); // Priority queue
@@ -84,7 +84,7 @@ export async function Dijkstra(
 
     // Visualization
     printLog(
-      `Found minimum distance from ${source} to ${u} ->  D[${u}] = ${D[u]}`
+      `La distance minimale trouvée de ${source} à ${u} -> D[${u}] = ${D[u]}`
     );
     vizEdge(P[u], u, "blue", isDirected);
     vizNode(u, "yellow");
@@ -104,7 +104,7 @@ export async function Dijkstra(
         // Visualization code
         setTag(v, D[v]);
         printLog(
-          `Relaxed distance of node ${v} with node ${u}: New distance ${D[v]}`
+          `Distance relaxée du sommet ${v} avec le sommet ${u} : Nouvelle distance ${D[v]}`
         );
         vizEdge(u, v, "green", isDirected);
         vizNode(v, "green");
