@@ -10,6 +10,7 @@ import AlgorithmsController from "./Algorithms/AlgorithmsController";
 import LogData from "./LogData/LogData";
 import Header from "./Header";
 import SnackbarAlert from "./Common/SnackbarAlert";
+import dottedBg from "../../public/assets/svgs/medium-light.svg";
 
 // Function to save data to local storage
 const saveDataToLocalStorage = (key, data) => {
@@ -176,10 +177,15 @@ export default function Main() {
           <div className="flex flex-col">
             {/* Drawing area */}
             <div
-              className="h-[700px] w-full flex justify-center items-center"
+              className="relative bg-[#F3F3F3] overflow-hidden h-[680px] w-full flex justify-center items-center"
               ref={canvasRef}
             >
-              <svg className="w-full h-full bg-playGroundBg">
+              <img
+                className="absolute top-0 left-0 scale-150 w-full h-full"
+                src={dottedBg}
+                alt=""
+              />
+              <svg className="w-full z-10 h-full">
                 {Object.entries(graphData.edges).map((element) => {
                   const idx = element[0];
                   const edge = element[1];
