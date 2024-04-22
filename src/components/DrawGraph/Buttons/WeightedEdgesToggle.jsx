@@ -9,7 +9,7 @@ export default function WeightedEdgesToggle({ isWeighted, setIsWeighted }) {
         onChange={(e) => {
           setIsWeighted(e.target.checked);
         }}
-        color="secondary"
+        color="primary"
       />
     </div>
   );

@@ -13,7 +13,7 @@ export default function ExportImport({ graphData, setGraph }) {
     <div className="flex flex-col rounded-lg h-full w-full overflow-hidden">
       {/* Export */}
       <button
-        className="flex h-fit items-center justify-between bg-primary2 text-white px-2 py-3 hover:bg-[#112e4fd3] rounded-t-md cursor-pointer transition-all duration-300"
+        className="flex h-fit items-center justify-between bg-primary5 text-white px-2 py-3 hover:bg-[#112e4fd3] rounded-t-md cursor-pointer transition-all duration-300"
         onClick={() => setShowImport()}
       >
         <div className="flex items-center gap-2">
@@ -63,7 +63,7 @@ export default function ExportImport({ graphData, setGraph }) {
 
       {/* Import */}
       <button
-        className="flex items-center h-fit gap-2 bg-primary2 border-t-[1px] text-white px-2 py-3 rounded-b-md hover:bg-[#112e4fd3] cursor-pointer transition-all duration-300"
+        className="flex items-center h-fit gap-2 bg-primary5 border-t-[1px] text-white px-2 py-3 rounded-b-md hover:bg-[#112e4fd3] cursor-pointer transition-all duration-300"
         onClick={() => setShowImport()}
         style={{ borderRadius: `${showImport ? "0" : "0 0 5px 5px"}` }}
       >
@@ -97,7 +97,7 @@ export default function ExportImport({ graphData, setGraph }) {
       {/* Submit button */}
       {showImport && (
         <button
-          className="bg-[#91c5f8] text-[#455b7f] rounded-b-md py-3 font-bold cursor-pointer hover:bg-[#91c5f8b8] transition-all duration-200"
+          className=" bg-primary5 text-primaryTextBtn rounded-b-md py-3 font-bold cursor-pointer hover:bg-primary5hover transition-all duration-200"
           onClick={() => setGraph(JSON.parse(importText))}
         >
           Submit

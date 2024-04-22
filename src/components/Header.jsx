@@ -23,9 +23,13 @@ export default function Header({
     if (button === "draw") setShowDrawGraph(true);
   }
   return (
-    <header className="w-full top-0 p-5 flex justify-between items-center bg-primary3  text-white  border-b-[1px] border-b-primary1">
-      <h1 className="font-semibold text-[24px]">Graph Algorithms Visualizer</h1>
-      <div className="flex items-center gap-4">
+    <header className="w-full top-0 flex justify-between items-center bg-primary3  text-white">
+      <div className="bg-primary5 h-full p-6 relative">
+        <h1 className="font-bold text-[24px]">Graph Algorithms Visualizer</h1>
+        <div className=" absolute bg-primary3 -right-10 top-0 h-full border-[42px] border-primary3 border-l-primary5 border-r-0" />
+      </div>
+
+      <div className="flex items-center gap-4 mr-4">
         {/* Add Dark Theme Button Switcher */}
         {/* <button
           onClick={() => setMode(mode === "light" ? "dark" : "light")}
@@ -41,7 +45,7 @@ export default function Header({
         </button> */}
 
         <button
-          className="flex items-center gap-2 bg-primary5  text-white  rounded-md px-4 py-2 hover:bg-primary5hover  transition duration-300"
+          className="flex items-center gap-2 text-[18px] bg-primary5 text-primaryTextBtn font-semibold rounded-md px-4 py-3 hover:bg-primary5hover  transition duration-300"
           onClick={() => handleClick("select")}
         >
           <h2>Sélectionner un graphe</h2>
@@ -51,7 +55,7 @@ export default function Header({
         </button>
 
         <button
-          className="flex items-center gap-2 bg-primary5 text-white  rounded-md px-4 py-2 hover:bg-primary5hover transition duration-300"
+          className="flex items-center gap-2 text-[18px] bg-primary5 text-primaryTextBtn font-semibold rounded-md px-4 py-3 hover:bg-primary5hover transition duration-300"
           onClick={() => handleClick("draw")}
         >
           <h2>Dessiner un graphe</h2>

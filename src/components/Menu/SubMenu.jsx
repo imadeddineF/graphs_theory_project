@@ -10,7 +10,7 @@ export default function SubMenu({ title, list, setCurrentAlgorithm }) {
     <div className="text-[16px]">
       {/* Title */}
       <h2
-        className="py-5 z-50 px-2 flex items-center justify-between cursor-pointer hover:bg-primary2hover transition-all duration-300"
+        className="py-5 z-50 font-bold text-[17px] px-2 flex items-center mb-1 justify-between cursor-pointer bg-primaryAlgoTitles hover:bg-primary2hover  transition-all duration-300"
         style={{ borderBottom: open ? "" : "solid #06121f 1px" }}
         onClick={toggleOpen}
       >
@@ -30,12 +30,12 @@ export default function SubMenu({ title, list, setCurrentAlgorithm }) {
             animate={{ opacity: 1, scaleY: 1 }}
             exit={{ opacity: 0, scaleY: 0.8 }}
             transition={{ duration: 0.2 }}
-            className=""
+            className="flex flex-col gap-1"
           >
             {list.map((item, id) => (
               <div
                 key={id}
-                className="bg-primary1 py-4 px-4 cursor-pointer hover:bg-primary1hover transition-all duration-300"
+                className="bg-primary1 font-semibold py-5 px-4 cursor-pointer hover:bg-primary1hover transition-all duration-300"
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentAlgorithm(item);

@@ -9,7 +9,7 @@ export default function DirectedEdgesToggle({ isDirected, setIsDirected }) {
         onChange={(e) => {
           setIsDirected(e.target.checked);
         }}
-        color="secondary"
+        color="primary"
       />
     </div>
   );

@@ -3,7 +3,7 @@ export default function TopsortPseudocode({ focusCodeLine }) {
     return { backgroundColor: focusCodeLine === id ? "#06121f" : "" };
   }
   return (
-    <ul className="bg-primary3 w-[60%] rounded-lg py-8 px-8 text-white flex flex-col gap-2">
+    <ul className="bg-pseudocode w-[60%] rounded-lg py-8 px-8 text-white flex flex-col gap-2">
       <li className="ml-2">
         <strong>for</strong> each vertex u &#8712; G:V
       </li>

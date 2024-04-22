@@ -10,7 +10,7 @@ import AlgorithmsController from "./Algorithms/AlgorithmsController";
 import LogData from "./LogData/LogData";
 import Header from "./Header";
 import SnackbarAlert from "./Common/SnackbarAlert";
-import dottedBg from "../../public/assets/svgs/medium-light.svg";
+import dottedBg from "/assets/svgs/medium-light.svg";
 
 // Function to save data to local storage
 const saveDataToLocalStorage = (key, data) => {
@@ -160,21 +160,21 @@ export default function Main() {
 
   return (
     <>
-      <div className="grid grid-cols-10">
-        <div className="col-span-2">
-          <Menu setCurrentAlgorithm={setCurrentAlgorithm} />
-        </div>
+      <div className="">
+        <Header
+          setShowDrawGraph={setShowDrawGraph}
+          setShowSelectGraph={setShowSelectGraph}
+          setOpenError={setOpenError}
+          setError={setError}
+          isPlaying={isPlaying}
+        />
 
-        <main className="col-span-8">
-          <Header
-            setShowDrawGraph={setShowDrawGraph}
-            setShowSelectGraph={setShowSelectGraph}
-            setOpenError={setOpenError}
-            setError={setError}
-            isPlaying={isPlaying}
-          />
+        <main className="grid grid-cols-10">
+          <div className="col-span-2">
+            <Menu setCurrentAlgorithm={setCurrentAlgorithm} />
+          </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col col-span-8">
             {/* Drawing area */}
             <div
               className="relative bg-[#F3F3F3] overflow-hidden h-[680px] w-full flex justify-center items-center"
@@ -224,6 +224,7 @@ export default function Main() {
             </div>
 
             <Reproductor speed={speed} setSpeed={setSpeed} />
+
             <div className="bg-[#efefef] w-full pb-16 pt-10">
               <AlgorithmsController
                 currentAlgorithm={currentAlgorithm}
@@ -237,6 +238,7 @@ export default function Main() {
                 setTag={setTag}
               />
             </div>
+
             <LogData logdata={logdata} />
             <SnackbarAlert
               openError={openError}
