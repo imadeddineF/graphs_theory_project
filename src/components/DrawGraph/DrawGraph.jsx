@@ -221,7 +221,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
     <div className="w-screen h-screen fixed top-0 left-0 bg-[#00000080] overflow-auto z-10">
       <div className="w-[95%] flex flex-col justify-between bg-primary3 rounded-xl p-5 pt-0 mx-auto my-10 font-bold">
         <div className="flex justify-between items-center text-white px-5 py-5">
-          <h2 className="font-bold text-[24px]">Draw a Graph</h2>
+          <h2 className="font-bold text-[24px]">Dessiner un graphe</h2>
           <button className="border border-white p-1  h-fit rounded-full hover:scale-105 transition-all duration-300">
             <CloseIcon className="text-white" onClick={close} />
           </button>

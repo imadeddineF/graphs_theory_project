@@ -7,7 +7,7 @@ export default function Back({ close }) {
       onClick={close}
     >
       <BackspaceIcon style={{ fontSize: "1rem", marginTop: "0.15rem" }} />
-      Back
+      Retour
     </button>
   );
 }
