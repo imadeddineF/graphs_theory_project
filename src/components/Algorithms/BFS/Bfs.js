@@ -38,7 +38,7 @@ export async function Bfs(
   //Visualization
   setTag(source, 0);
   printLog(
-    `La distance minimale de ${source} vers ${source} ->  d(${source}]) = ${D[source]}`
+    `La distance minimale de ${source} vers ${source} ->  D[${source}] = ${D[source]}`
   );
   setFocusCodeLine(4);
   await delay(delayTime);
@@ -64,7 +64,7 @@ export async function Bfs(
         // Visualization
         setTag(v, D[v]);
         printLog(
-          `Minimum distance from ${source} to ${v} ->  D[${v}] = ${D[v]}`
+          `La distance minimale de  ${source} vers ${v} ->  D[${v}] = ${D[v]}`
         );
         vizEdge(u, v, "blue", isDirected);
         vizNode(v, "blue");
@@ -79,6 +79,10 @@ export async function Bfs(
         await delay(delayTime);
         vizEdge(u, v, "black", isDirected);
       }
+    }
+    // Done
+    if (Q.length === 0) {
+      printLog("done");
     }
     vizNode(u, "blue");
     setFocusCodeLine();

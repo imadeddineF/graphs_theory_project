@@ -18,10 +18,12 @@ export default function BfsController({
 }) {
   const [source, setSource] = useState("");
   const [focusCodeLine, setFocusCodeLine] = useState();
+
   // Errors
   const [openError, setOpenError] = useState(false);
   const [error, setError] = useState();
   const isBlank = Object.keys(graphData.nodes).length === 0;
+
   function handleClick() {
     if (isPlaying) {
       setOpenError(true);

@@ -122,9 +122,11 @@ export async function Dijkstra(
         vizEdge(u, v, "black", isDirected);
       }
     }
+    // Visualization
     vizNode(u, "blue");
     setFocusCodeLine();
     await delay(delayTime / 5);
   }
+  printLog("done");
   setIsPlaying(false);
 }

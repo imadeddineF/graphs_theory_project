@@ -103,5 +103,6 @@ export async function Prim(
   }
 
   printLog(`Arbre couvrant minimal trouvé : Poids total = ${totalWeight}`);
+  printLog("done");
   setIsPlaying(false);
 }

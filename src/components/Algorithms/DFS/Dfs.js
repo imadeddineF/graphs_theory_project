@@ -53,12 +53,16 @@ export async function Dfs(
         await delay(delayTime);
         vizEdge(u, v, "black", isDirected);
       }
+
       //Visualization
       setFocusCodeLine(7);
       await delay(delayTime / 5);
-
       await DfsCall(v, u);
     }
+    // Done
+    // if (visit === true) {
+    //   printLog("done");
+    // }
   }
   setIsPlaying(false);
 }

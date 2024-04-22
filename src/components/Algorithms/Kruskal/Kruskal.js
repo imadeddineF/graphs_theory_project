@@ -11,6 +11,7 @@ export async function Kruskal(
 ) {
   const topNode = graphData.topNode;
   const isDirected = graphData.isDirected;
+
   const edges = Object.values(graphData.edges).map(({ u, v, w }) => {
     return { u: Number(u), v: Number(v), w: Number(w) };
   });
@@ -33,9 +34,9 @@ export async function Kruskal(
   edges.sort((firstEdge, secondEdge) => firstEdge.w - secondEdge.w);
   let totalWeight = 0;
   let components = Object.keys(graphData.nodes).length;
+
   for (let i = 0; i < edges.length; i++) {
     const { u, v, w } = edges[i];
-
     //Visualization
     setFocusCodeLine();
     await delay(delayTime / 5);
@@ -60,18 +61,20 @@ export async function Kruskal(
     }
     union(find(u), find(v));
   }
+
   if (components > 1)
     printLog(
       `Forêt couvrante minimale trouvée : Poids total = ${totalWeight} -> Nombre d'arbres = ${components}`
     );
   else printLog(`Arbre couvrant minimal trouvé : Poids total = ${totalWeight}`);
-
+  printLog("done");
   setIsPlaying(false);
 
   function find(u) {
     if (P[u] === u) return u;
     return (P[u] = find(P[u]));
   }
+
   function union(u, v) {
     if (P[u] === P[v]) return;
     if (size[u] < size[v]) [u, v] = [v, u];

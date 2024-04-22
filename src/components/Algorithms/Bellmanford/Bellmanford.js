@@ -93,4 +93,5 @@ export async function Bellmanford(
     }
     return false;
   }
+  printLog("done");
 }

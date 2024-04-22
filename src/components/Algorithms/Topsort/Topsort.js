@@ -92,6 +92,7 @@ export async function Topsort(
   }
   if (!stop) {
     printLog(`Tri topologique final : ${topSort} (Un tri possible)`);
+    printLog("done");
   }
   setIsPlaying(false);
 }

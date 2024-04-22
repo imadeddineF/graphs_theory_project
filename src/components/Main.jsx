@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useReducer,
-  useRef,
-  useEffect,
-  useCallback,
-} from "react";
+import { useState, useReducer, useRef, useEffect, useCallback } from "react";
 import DrawGraph from "./DrawGraph/DrawGraph";
 import SelectGraph from "./SelectGraph/SelectGraph";
 import Node from "./Canvas/Node";
@@ -48,7 +42,6 @@ export default function Main() {
     edges: {},
   });
   const [graphData, setGraphData] = useState(blankGraph.current);
-
   const [currentAlgorithm, setCurrentAlgorithm] = useState();
 
   // Visualization states
@@ -59,16 +52,19 @@ export default function Main() {
   );
   const [speed, setSpeed] = useState(600);
   const [isPlaying, setIsPlaying] = useState(false);
+
   function vizNode(id, highlightId) {
     updateVizData({
       name: "node",
       value: { id: id, highlightId: highlightId },
     });
   }
+
   function vizEdge(u, v, highlightId, isDirected) {
     vizEdgeDirected(u, v, highlightId);
     if (!isDirected) vizEdgeDirected(v, u, highlightId);
   }
+
   function vizEdgeDirected(u, v, highlightId) {
     const edge = findEdgeId(u, v);
     if (edge !== undefined) {
@@ -78,6 +74,7 @@ export default function Main() {
       });
     }
   }
+
   function findEdgeId(u, v) {
     return Object.keys(graphData.edges).find(
       (id) =>
@@ -122,14 +119,17 @@ export default function Main() {
       value: blankVizData.current,
     });
   }, []);
+
   useEffect(() => {
     if (isPlaying) {
       resetViz();
     }
   }, [isPlaying, resetViz]);
+
   // Snackbar alert errors
   const [openError, setOpenError] = useState(false);
   const [error, setError] = useState();
+
   return (
     <>
       <Header
