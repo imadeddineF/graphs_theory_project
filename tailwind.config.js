@@ -11,7 +11,7 @@ export default {
       primary1hover: "#40916C",
 
       primary2: "#2D6A4F", // main algorithm links
-      primary2Hover: "#1B4332",
+      primary2hover: "#1B4332",
 
       primary3: "#1B4332", // header & footer & right sidebar
 

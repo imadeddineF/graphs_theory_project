@@ -18,15 +18,16 @@ export default function NodeSelector({ nodes, source, setSource }) {
   };
 
   return (
-    <FormControl className="w-[80%]" style={{ marginTop: "20px" }}>
-      <InputLabel style={{ color: "white", borderColor: "white" }}>
+    <FormControl className="w-[200px] h-full">
+      <InputLabel style={{ color: "black", borderColor: "black" }}>
         Source
       </InputLabel>
 
       <Select
         style={{
           borderColor: "white",
-          color: "white",
+          color: "black",
+          height: "100%",
         }}
         value={source}
         onChange={handleChangeSource}

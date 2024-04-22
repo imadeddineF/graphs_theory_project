@@ -17,7 +17,7 @@ export default function Menu({ setCurrentAlgorithm }) {
   ];
   return (
     <div className="bg-primary2 text-white text-left over h-full">
-      <h2 className="text-[20px] font-medium border-b-[1px] m-0 py-5 px-3">
+      <h2 className="text-[24px] font-medium border-b-[1px] border-white m-0 py-[22px] px-3">
         Algorithmes
       </h2>
       {/* Elementary Graph Algorithms */}

@@ -10,7 +10,7 @@ export default function SubMenu({ title, list, setCurrentAlgorithm }) {
     <div className="text-[16px]">
       {/* Title */}
       <h2
-        className="py-4 z-50 px-2 flex items-center justify-between cursor-pointer hover:bg-primary2Hover transition-all duration-300"
+        className="py-5 z-50 px-2 flex items-center justify-between cursor-pointer hover:bg-primary2hover transition-all duration-300"
         style={{ borderBottom: open ? "" : "solid #06121f 1px" }}
         onClick={toggleOpen}
       >

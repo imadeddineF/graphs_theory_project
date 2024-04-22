@@ -1,7 +1,7 @@
 export default function LogData({ logdata }) {
   const length = logdata.length;
   return (
-    <div className="bg-logData p-8 min-h-[200px]">
+    <div className="bg-logData p-20 pt-16 min-h-[200px]">
       <h1 className="text-center text-[24px] font-bold mb-8">Les Données</h1>
       {logdata.length === 0 ? (
         <div className="bg-black text-white p-6 rounded-md">
@@ -9,8 +9,10 @@ export default function LogData({ logdata }) {
         </div>
       ) : (
         <>
-          <h2 className="font-bold text-[18px] text-[#7f54bf]">{logdata[0]}</h2>
-          <ul className="flex flex-col text-[15px] gap-2 ml-20 my-6 bg-black text-white p-6 rounded-md">
+          <h2 className="font-bold  text-[18px] text-[#7f54bf]">
+            {logdata[0]}
+          </h2>
+          <ul className="flex flex-col text-[15px] gap-2 mx-[160px] justify-center my-6 bg-black text-white p-6 rounded-md">
             {logdata.slice(1, length).map((line, idx) => {
               return (
                 <li key={idx}>

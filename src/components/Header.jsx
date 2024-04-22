@@ -23,7 +23,7 @@ export default function Header({
     if (button === "draw") setShowDrawGraph(true);
   }
   return (
-    <header className="w-full top-0 p-4 flex justify-between items-center bg-primary3  text-white  border-b-[1px] border-b-primary1">
+    <header className="w-full top-0 p-5 flex justify-between items-center bg-primary3  text-white  border-b-[1px] border-b-primary1">
       <h1 className="font-semibold text-[24px]">Graph Algorithms Visualizer</h1>
       <div className="flex items-center gap-4">
         {/* Add Dark Theme Button Switcher */}
