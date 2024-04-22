@@ -3,7 +3,7 @@ import RestoreIcon from "@mui/icons-material/Restore";
 export default function NewButton({ resetGraph }) {
   return (
     <button
-      className="bg-primary4 px-5 py-3 rounded-lg flex items-center gap-2 hover:bg-[#033369] transition-all duration-300 text-white font-bold"
+      className="bg-primary5 px-5 py-3 rounded-lg flex items-center gap-2 hover:bg-primary5hover transition-all duration-300 text-white font-bold"
       onClick={resetGraph}
     >
       New

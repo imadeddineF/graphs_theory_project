@@ -225,7 +225,7 @@ export default function Main() {
           />
         </div>
 
-        <div className="col-span-2 bg-primary3 h-full">
+        <div className="col-span-2 bg-primary2 h-full">
           <AlgorithmsController
             currentAlgorithm={currentAlgorithm}
             vizNode={vizNode}

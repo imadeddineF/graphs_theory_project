@@ -7,26 +7,26 @@ export default {
       white: "#ffffff",
       black: "#000000",
 
-      primary1: "#3A0CA3", // sub links
-      primary1hover: "#291e6c",
+      primary1: "#52B788", // sub links
+      primary1hover: "#40916C",
 
-      primary2: "#3F37C9", // main algorithm links
-      primary2Hover: "#2A045D",
+      primary2: "#2D6A4F", // main algorithm links
+      primary2Hover: "#1B4332",
 
-      primary3: "#23456E", // header & footer & right sidebar
+      primary3: "#1B4332", // header & footer & right sidebar
 
-      primary4: "#111111", // pseudo code
+      primary4: "#D8F3DC", // pseudo code
 
-      primary5: "#000000", // buttons background
+      primary5: "#081C15", // buttons background
       primary5hover: "#153000",
 
       playGroundBg: "#ffffff",
 
-      logData: "#D5f5f5",
+      logData: "#D8F3DC",
 
-      speed: "#12f5f5",
+      speed: "#95D5B2",
 
-      instructions: "#dbe2ef", // pretty nice color for instructions
+      instructions: "#D8F3DC", // pretty nice color for instructions
     },
   },
   plugins: [],
