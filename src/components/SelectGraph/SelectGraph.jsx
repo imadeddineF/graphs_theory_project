@@ -19,7 +19,7 @@ export default function SelectGraph({ close, sendGraph }) {
           </button>
         </div>
 
-        <div className="p-6 grid grid-cols-3 overflow-y-scroll justify-around gap-6">
+        <div className="p-6 pt-0 grid grid-cols-3 overflow-y-scroll justify-around gap-6">
           {graphList.map((graph, idx) => {
             return (
               <Card

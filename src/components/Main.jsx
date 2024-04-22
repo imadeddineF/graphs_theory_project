@@ -11,6 +11,17 @@ import LogData from "./LogData/LogData";
 import Header from "./Header";
 import SnackbarAlert from "./Common/SnackbarAlert";
 
+// Function to save data to local storage
+const saveDataToLocalStorage = (key, data) => {
+  localStorage.setItem(key, JSON.stringify(data));
+};
+
+// Function to load data from local storage
+const loadDataFromLocalStorage = (key, defaultValue) => {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : defaultValue;
+};
+
 function vizDataReducer(state, event) {
   switch (event.name) {
     case "node":
@@ -33,16 +44,32 @@ function vizDataReducer(state, event) {
 export default function Main() {
   const [showDrawGraph, setShowDrawGraph] = useState(false);
   const [showSelectGraph, setShowSelectGraph] = useState(false);
-  const blankGraph = useRef({
-    topNode: 0,
-    topEdge: 0,
-    isWeighted: false,
-    isDirected: false,
-    nodes: {},
-    edges: {},
-  });
-  const [graphData, setGraphData] = useState(blankGraph.current);
+  // const blankGraph = useRef({
+  //   topNode: 0,
+  //   topEdge: 0,
+  //   isWeighted: false,
+  //   isDirected: false,
+  //   nodes: {},
+  //   edges: {},
+  // });
+
+  // const [graphData, setGraphData] = useState(blankGraph.current);
+  const [graphData, setGraphData] = useState(() =>
+    loadDataFromLocalStorage("graphData", {
+      topNode: 0,
+      topEdge: 0,
+      isWeighted: false,
+      isDirected: false,
+      nodes: {},
+      edges: {},
+    })
+  );
   const [currentAlgorithm, setCurrentAlgorithm] = useState();
+
+  // Save graph data to local storage whenever it changes
+  useEffect(() => {
+    saveDataToLocalStorage("graphData", graphData);
+  }, [graphData]);
 
   // Visualization states
   const blankVizData = useRef({ nodes: {}, edges: {} });

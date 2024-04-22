@@ -11,6 +11,7 @@ import DirectedEdgesToggle from "./Buttons/DirectedEdgesToggle";
 import NewButton from "./Buttons/NewButton";
 import TemporalEdge from "./TemporalEdge";
 import SnackbarAlert from "../Common/SnackbarAlert";
+import CloseIcon from "@mui/icons-material/Close";
 
 function dataReducer(state, event) {
   switch (event.name) {
@@ -218,7 +219,14 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
 
   return (
     <div className="w-screen h-screen fixed top-0 left-0 bg-[#00000080] overflow-auto z-10">
-      <div className="w-[95%] min-h-screen flex flex-col justify-between min-h-[90%] bg-primary3 rounded-xl p-5 mx-auto my-10">
+      <div className="w-[95%] flex flex-col justify-between bg-primary3 rounded-xl p-5 pt-0 mx-auto my-10 font-bold">
+        <div className="flex justify-between items-center text-white px-5 py-5">
+          <h2 className="font-bold text-[24px]">Draw a Graph</h2>
+          <button className="border border-white p-1  h-fit rounded-full hover:scale-105 transition-all duration-300">
+            <CloseIcon className="text-white" onClick={close} />
+          </button>
+        </div>
+
         <div className="h-full gap-4 grid grid-cols-12">
           <div className="col-span-2">
             <Instructions />

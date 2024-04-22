@@ -12,7 +12,7 @@ export default function EditWeight({
   }, []);
   return (
     <form
-      className=""
+      className="-mt-28 ml-5 shadow-md w-fit py-2 px-4 rounded-md bg-[#efefef] z-10"
       onSubmit={(e) => {
         e.preventDefault();
         if (newWeight.current.value === "") return;
@@ -20,12 +20,28 @@ export default function EditWeight({
         setCurrentEdge(null);
       }}
     >
-      <input type="number" ref={newWeight} autoFocus />
-      <button type="submit">
-        <ArrowForwardIcon
-          style={{ fontSize: "0.8rem", marginTop: "2px", color: "white" }}
+      <h2 className="mb-2">Modifier le poids:</h2>
+      <div className="flex items-center gap-2">
+        <input
+          className="rounded-lg py-2 outline-none px-3 w-40 shadow-md"
+          type="number"
+          ref={newWeight}
+          autoFocus
         />
-      </button>
+        <button
+          className="bg-primary5 rounded-full h-10 w-10 flex justify-center items-center hover:bg-primary5hover transition duration-300"
+          type="submit"
+        >
+          <ArrowForwardIcon
+            style={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              marginTop: "2px",
+              color: "white",
+            }}
+          />
+        </button>
+      </div>
     </form>
   );
 }

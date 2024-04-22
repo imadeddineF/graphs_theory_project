@@ -20,7 +20,7 @@ export default {
       primary5: "#000000", // buttons background
       primary5hover: "#153000",
 
-      playGroundBg: "#93f6f6",
+      playGroundBg: "#ffffff",
 
       logData: "#D5f5f5",
 
