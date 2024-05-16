@@ -1,7 +1,17 @@
+/* eslint-disable react/prop-types */
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+
+/**
+ * The properties for the menu component.
+ * @typedef {Object} MenuProps
+ * @property {Object} PaperProps - The properties for the paper component.
+ * @property {Object} PaperProps.style - The style object for the paper component.
+ * @property {number} PaperProps.style.maxHeight - The maximum height of the paper component.
+ * @property {number} PaperProps.style.width - The width of the paper component.
+ */
 
 const MenuProps = {
   PaperProps: {

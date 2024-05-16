@@ -1,9 +1,25 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 import { Kruskal } from "./Kruskal";
 import KruskalPseudocode from "./KruskalPseudocode";
 import PlayButton from "../Extra/PlayButton";
 import SnackbarAlert from "../../Common/SnackbarAlert";
 
+/**
+ * Renders the KruskalController component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.currentAlgorithm - The current algorithm being used.
+ * @param {Object} props.graphData - The data of the graph.
+ * @param {Object} props.vizNode - The visualization of the graph nodes.
+ * @param {Object} props.vizEdge - The visualization of the graph edges.
+ * @param {number} props.delayTime - The delay time for visualization.
+ * @param {boolean} props.isPlaying - Indicates if the visualization is currently playing.
+ * @param {function} props.setIsPlaying - Function to set the state of isPlaying.
+ * @param {function} props.printLog - Function to print log messages.
+ * @returns {JSX.Element} The rendered KruskalController component.
+ */
 export default function KruskalController({
   currentAlgorithm,
   graphData,

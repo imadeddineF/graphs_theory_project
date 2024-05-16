@@ -1,4 +1,17 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
+/**
+ * Represents an edge component in a canvas.
+ *
+ * @param {Object} props - The props for the Edge component.
+ * @param {Object} props.edge - The edge object.
+ * @param {Object} props.position - The position of the edge.
+ * @param {boolean} props.isWeighted - Indicates if the edge is weighted.
+ * @param {boolean} props.isDirected - Indicates if the edge is directed.
+ * @param {boolean} props.isCurved - Indicates if the edge is curved.
+ * @param {string} props.highlight - The highlight color of the edge.
+ * @returns {JSX.Element} The rendered Edge component.
+ */
 
 export default function Edge({
   // id,

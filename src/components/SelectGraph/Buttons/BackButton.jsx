@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import BackspaceIcon from "@mui/icons-material/Backspace";
 
 export default function Back({ close }) {

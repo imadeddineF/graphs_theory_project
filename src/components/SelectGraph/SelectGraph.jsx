@@ -1,3 +1,12 @@
+/**
+ * Component for selecting a graph.
+ * @param {Object} props - The component props.
+ * @param {Function} props.close - The function to close the graph selection.
+ * @param {Function} props.sendGraph - The function to send the selected graph.
+ * @returns {JSX.Element} The SelectGraph component.
+ */
+
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import BackButton from "./Buttons/BackButton";
 import SelectButton from "./Buttons/SelectButton";

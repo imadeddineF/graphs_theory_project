@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import BfsController from "./BFS/BfsController";
 import DijkstraController from "./Dijkstra/DijkstraController";
 import DfsController from "./DFS/DfsController";
@@ -7,6 +8,13 @@ import KruskalController from "./Kruskal/KruskalController";
 import PrimController from "./Prim/PrimController";
 
 export default function AlgorithmsController(props) {
+  /**
+   * Returns the component corresponding to the given algorithm.
+   *
+   * @param {string} currentAlgorithm - The name of the algorithm.
+   * @returns {React.Component} The component corresponding to the algorithm.
+   */
+
   function getAlgorithm(currentAlgorithm) {
     switch (currentAlgorithm) {
       case "Recherche en largeur":

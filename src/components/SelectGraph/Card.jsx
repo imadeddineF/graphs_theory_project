@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import CardEdge from "./CardEdge";
 import CardNode from "./CardNode";
 
@@ -15,6 +16,10 @@ export default function Card({
         Number(graphData.edges[id].v) === Number(v)
     );
   }
+  /**
+   * Selects the current graph and updates the graph data.
+   */
+
   function select() {
     setCurrent(id);
     setGraphData(graphData);

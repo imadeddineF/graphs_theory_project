@@ -1,5 +1,18 @@
 import { delay } from "../Extra/Extra";
 
+/**
+ * Executes the Kruskal's algorithm on the given graph data.
+ *
+ * @param {object} graphData - The graph data containing nodes and edges.
+ * @param {function} vizNode - The visualization function for nodes.
+ * @param {function} vizEdge - The visualization function for edges.
+ * @param {function} setFocusCodeLine - The function to set the focus on a specific line of code.
+ * @param {number} delayTime - The delay time between each step of the algorithm.
+ * @param {function} setIsPlaying - The function to set the playing state of the algorithm.
+ * @param {function} printLog - The function to print logs during the algorithm execution.
+ * @returns {Promise<void>} - A promise that resolves when the algorithm execution is complete.
+ */
+
 export async function Kruskal(
   graphData,
   vizNode,

@@ -1,3 +1,13 @@
+/* eslint-disable react/prop-types */
+/**
+ * Renders the log data component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Array} props.logdata - The array of log data.
+ * @returns {JSX.Element} The rendered LogData component.
+ */
+
 export default function LogData({ logdata }) {
   const length = logdata.length;
   return (

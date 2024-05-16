@@ -1,3 +1,11 @@
+/* eslint-disable react/prop-types */
+/**
+ * Renders the pseudocode for the Kruskal's algorithm.
+ * @param {Object} props - The component props.
+ * @param {number} props.focusCodeLine - The line number to highlight in the pseudocode.
+ * @returns {JSX.Element} The rendered pseudocode component.
+ */
+
 export default function KruskalPseudocode({ focusCodeLine }) {
   function highlight(id) {
     return { backgroundColor: focusCodeLine === id ? "#06121f" : "" };

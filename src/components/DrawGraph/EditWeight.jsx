@@ -1,5 +1,17 @@
+/* eslint-disable react/prop-types */
 import { useRef, useEffect } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+
+/**
+ * Component for editing the weight of an edge.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Object} props.currentEdge - The current edge being edited.
+ * @param {Function} props.setCurrentEdge - The function to set the current edge.
+ * @param {Function} props.handleSubmit - The function to handle form submission.
+ * @returns {JSX.Element} The EditWeight component.
+ */
 
 export default function EditWeight({
   currentEdge,

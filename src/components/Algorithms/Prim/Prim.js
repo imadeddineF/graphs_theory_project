@@ -4,10 +4,20 @@ class QElement {
     this.cost = cost;
   }
 }
+/**
+ * Represents a priority queue.
+ * @class
+ */
 class PriorityQueue {
   constructor() {
     this.items = [];
   }
+
+  /**
+   * Adds an element to the priority queue.
+   * @param {any} id - The identifier of the element.
+   * @param {number} cost - The cost/priority of the element.
+   */
   enqueue(id, cost) {
     let qElement = new QElement(id, cost);
     let contain = false;
@@ -24,13 +34,27 @@ class PriorityQueue {
       this.items.push(qElement);
     }
   }
+
+  /**
+   * Removes and returns the element with the highest priority from the queue.
+   * @returns {QElement} The element with the highest priority.
+   */
   pop() {
     return this.items.shift();
   }
+
+  /**
+   * Returns the element with the highest priority without removing it from the queue.
+   * @returns {QElement} The element with the highest priority.
+   */
   front() {
-    // returns the lowest distance element
     return this.items[0];
   }
+
+  /**
+   * Checks if the priority queue is empty.
+   * @returns {boolean} `true` if the queue is empty, `false` otherwise.
+   */
   isEmpty() {
     return this.items.length === 0;
   }

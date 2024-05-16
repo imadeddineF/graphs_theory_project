@@ -1,3 +1,11 @@
+/* eslint-disable react/prop-types */
+/**
+ * Renders the pseudocode for the Bellman-Ford algorithm.
+ * @param {Object} props - The component props.
+ * @param {number} props.focusCodeLine - The line number to highlight in the pseudocode.
+ * @returns {JSX.Element} The JSX element representing the pseudocode.
+ */
+
 export default function BfsPseudocode({ focusCodeLine }) {
   function highlight(id) {
     return { backgroundColor: focusCodeLine === id ? "#06121f" : "" };

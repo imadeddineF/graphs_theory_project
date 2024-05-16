@@ -1,6 +1,12 @@
-import React, { useRef } from "react";
+/* eslint-disable react/prop-types */
+import { useRef } from "react";
 
 export default function Node({ position, id, highlight, tag }) {
+  /**
+   * Returns the color based on the provided highlight value.
+   * @returns {string} The color value.
+   */
+
   function color() {
     switch (highlight) {
       case "blue":

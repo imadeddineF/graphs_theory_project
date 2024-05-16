@@ -1,3 +1,11 @@
+/* eslint-disable react/prop-types */
+/**
+ * Renders the pseudocode for the Dijkstra's algorithm.
+ * @param {Object} props - The component props.
+ * @param {number} props.focusCodeLine - The line number to highlight in the pseudocode.
+ * @returns {JSX.Element} The JSX element representing the Dijkstra's algorithm pseudocode.
+ */
+
 export default function DijkstraPseudocode({ focusCodeLine }) {
   function highlight(id) {
     return { backgroundColor: focusCodeLine === id ? "#06121f" : "" };

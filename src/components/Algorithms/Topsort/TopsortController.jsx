@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 import { Topsort } from "./Topsort";
 import TopsortPseudocode from "./TopsortPseudocode";
 import PlayButton from "../Extra/PlayButton";
 import SnackbarAlert from "../../Common/SnackbarAlert";
+
+/**
+ * Renders the TopsortController component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.currentAlgorithm - The current algorithm name.
+ * @param {Object} props.graphData - The graph data.
+ * @param {Object} props.vizNode - The visualization node data.
+ * @param {Object} props.vizEdge - The visualization edge data.
+ * @param {number} props.delayTime - The delay time for visualization.
+ * @param {boolean} props.isPlaying - Indicates if the visualization is currently playing.
+ * @param {function} props.setIsPlaying - Function to set the isPlaying state.
+ * @param {function} props.printLog - Function to print log messages.
+ * @param {function} props.setTag - Function to set the tag.
+ * @returns {JSX.Element} The rendered TopsortController component.
+ */
 
 export default function TopsortController({
   currentAlgorithm,

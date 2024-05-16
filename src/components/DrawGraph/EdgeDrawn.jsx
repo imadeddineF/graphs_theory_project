@@ -1,3 +1,19 @@
+/* eslint-disable react/prop-types */
+/**
+ * Renders an edge in a graph.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.id - The unique identifier of the edge.
+ * @param {Object} props.edge - The edge object containing information about the edge.
+ * @param {Object} props.position - The position of the edge.
+ * @param {string} props.currentEdge - The currently selected edge.
+ * @param {Function} props.handleClick - The click event handler for the edge.
+ * @param {boolean} props.isWeighted - Indicates whether the graph is weighted.
+ * @param {boolean} props.isDirected - Indicates whether the graph is directed.
+ * @param {boolean} props.isCurved - Indicates whether the edge is curved.
+ * @returns {JSX.Element} The rendered edge component.
+ */
+
 export default function EdgeDrawn({
   id,
   edge,

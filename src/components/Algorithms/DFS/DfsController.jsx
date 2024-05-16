@@ -1,3 +1,20 @@
+/**
+ * DfsController component for controlling the Depth First Search algorithm.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.currentAlgorithm - The name of the current algorithm.
+ * @param {Object} props.graphData - The data of the graph.
+ * @param {Object} props.vizNode - The visualization settings for nodes.
+ * @param {Object} props.vizEdge - The visualization settings for edges.
+ * @param {number} props.delayTime - The delay time for visualization.
+ * @param {boolean} props.isPlaying - Indicates if the visualization is currently playing.
+ * @param {function} props.setIsPlaying - Function to set the playing state.
+ * @param {function} props.printLog - Function to print log messages.
+ * @param {function} props.setTag - Function to set the tag.
+ * @returns {JSX.Element} The rendered DfsController component.
+ */
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Dfs } from "./Dfs";
 import DfsPseudocode from "./DfsPseudocode";

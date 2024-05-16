@@ -37,6 +37,20 @@ class PriorityQueue {
 }
 import { delay, getAdj } from "../Extra/Extra";
 
+/**
+ * Runs the Dijkstra's algorithm on a given graph to find the shortest path from a source node to all other nodes.
+ *
+ * @param {object} graphData - The graph data containing information about nodes, edges, and graph properties.
+ * @param {number} source - The source node from which to find the shortest paths.
+ * @param {function} vizNode - A function to visualize node changes during the algorithm execution.
+ * @param {function} vizEdge - A function to visualize edge changes during the algorithm execution.
+ * @param {function} setFocusCodeLine - A function to set the focus on a specific line of code during visualization.
+ * @param {number} delayTime - The delay time (in milliseconds) between each step of the algorithm execution.
+ * @param {function} setIsPlaying - A function to control the playing state of the algorithm.
+ * @param {function} printLog - A function to print log messages during the algorithm execution.
+ * @param {function} setTag - A function to set tags on nodes during the algorithm execution.
+ * @returns {Promise<void>} - A promise that resolves when the algorithm execution is complete.
+ */
 export async function Dijkstra(
   graphData,
   source,

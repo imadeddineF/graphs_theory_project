@@ -1,3 +1,13 @@
+/* eslint-disable react/prop-types */
+/**
+ * Renders the pseudocode for the topsort algorithm.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {number} props.focusCodeLine - The line number to highlight in the pseudocode.
+ * @returns {JSX.Element} The rendered component.
+ */
+
 export default function TopsortPseudocode({ focusCodeLine }) {
   function highlight(id) {
     return { backgroundColor: focusCodeLine === id ? "#06121f" : "" };

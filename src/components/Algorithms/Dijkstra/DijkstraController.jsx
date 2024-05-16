@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Dijkstra } from "./Dijkstra";
 import DijkstraPseudocode from "./DijkstraPseudocode";
@@ -5,6 +6,21 @@ import NodeSelector from "../Extra/NodeSelector";
 import PlayButton from "../Extra/PlayButton";
 import SnackbarAlert from "../../Common/SnackbarAlert";
 
+/**
+ * DijkstraController component that handles the control logic for the Dijkstra algorithm visualization.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.currentAlgorithm - The name of the current algorithm.
+ * @param {Object} props.graphData - The data representing the graph.
+ * @param {Object} props.vizNode - The visualization settings for nodes.
+ * @param {Object} props.vizEdge - The visualization settings for edges.
+ * @param {number} props.delayTime - The delay time between visualization steps.
+ * @param {boolean} props.isPlaying - Flag indicating if the visualization is currently playing.
+ * @param {function} props.setIsPlaying - Function to set the isPlaying flag.
+ * @param {function} props.printLog - Function to print log messages.
+ * @param {function} props.setTag - Function to set the tag.
+ * @returns {JSX.Element} The DijkstraController component.
+ */
 export default function DijkstraController({
   currentAlgorithm,
   graphData,
@@ -24,6 +40,10 @@ export default function DijkstraController({
   const [error, setError] = useState();
   const isBlank = Object.keys(graphData.nodes).length === 0;
 
+  /**
+   * Handles the click event when the play button is clicked.
+   * Executes the Dijkstra algorithm visualization.
+   */
   function handleClick() {
     if (isPlaying) {
       setOpenError(true);
@@ -63,6 +83,12 @@ export default function DijkstraController({
       setTag
     );
   }
+
+  /**
+   * Checks if the graph has any negative edges.
+   *
+   * @returns {boolean} True if the graph has negative edges, false otherwise.
+   */
   function negativeEdges() {
     let ret = false;
     Object.values(graphData.edges).forEach(({ w }) => {
@@ -70,6 +96,7 @@ export default function DijkstraController({
     });
     return ret;
   }
+
   return (
     <div className="flex flex-col px-2 items-center justify-center">
       <h3 className="py-8 font-bold text-[24px]">{currentAlgorithm}</h3>

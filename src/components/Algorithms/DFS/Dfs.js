@@ -27,6 +27,13 @@ export async function Dfs(
   printLog(`Commencer au Sommet ${source}`);
   DfsCall(source, -1);
 
+  /**
+   * Performs a Depth-First Search (DFS) traversal starting from a given vertex.
+   *
+   * @param {number} u - The starting vertex for the DFS traversal.
+   * @param {number} parent - The parent vertex of the current vertex.
+   * @returns {Promise<void>} - A promise that resolves when the DFS traversal is complete.
+   */
   async function DfsCall(u, parent) {
     if (visit[u]) {
       return;

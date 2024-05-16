@@ -1,5 +1,15 @@
+/* eslint-disable react/prop-types */
 import SpeedSlider from "./SpeedSlider";
 import SpeedIcon from "@mui/icons-material/Speed";
+
+/**
+ * Reproductor component.
+ *
+ * @param {Object} props - The component props.
+ * @param {number} props.speed - The current speed value.
+ * @param {function} props.setSpeed - The function to update the speed value.
+ * @returns {JSX.Element} The Reproductor component.
+ */
 
 export default function Reproductor({ speed, setSpeed }) {
   return (

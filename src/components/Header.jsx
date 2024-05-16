@@ -1,7 +1,19 @@
+/* eslint-disable react/prop-types */
 import EditIcon from "@mui/icons-material/Edit";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // import { MoonIcon, SunIcon } from "../icons";
 // import UseThemeSwitcher from "../hooks/useThemeSwitcher";
+
+/**
+ * Header component for the Graph Algorithms Visualizer.
+ * @param {Object} props - The component props.
+ * @param {Function} props.setShowDrawGraph - Function to set the state of showing the draw graph component.
+ * @param {Function} props.setShowSelectGraph - Function to set the state of showing the select graph component.
+ * @param {Function} props.setOpenError - Function to set the state of opening the error dialog.
+ * @param {Function} props.setError - Function to set the error message.
+ * @param {boolean} props.isPlaying - Flag indicating if the visualization is currently playing.
+ * @returns {JSX.Element} The rendered Header component.
+ */
 
 export default function Header({
   setShowDrawGraph,
@@ -13,6 +25,10 @@ export default function Header({
   // add the switcher icon
   // const [mode, setMode] = UseThemeSwitcher("");
 
+  /**
+   * Handles the click event on the buttons.
+   * @param {string} button - The button identifier.
+   */
   function handleClick(button) {
     if (isPlaying) {
       setOpenError(true);
@@ -22,6 +38,7 @@ export default function Header({
     if (button === "select") setShowSelectGraph(true);
     if (button === "draw") setShowDrawGraph(true);
   }
+
   return (
     <header className="w-full top-0 flex justify-between items-center bg-primary3  text-white">
       <div className="bg-primary5 h-full p-6 relative">

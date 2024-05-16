@@ -1,5 +1,19 @@
 import { delay, getAdj } from "../Extra/Extra";
 
+/**
+ * Performs Breadth-First Search (BFS) algorithm on a graph.
+ *
+ * @param {object} graphData - The graph data containing topNode, edges, isDirected, and isWeighted.
+ * @param {number} source - The source node for BFS.
+ * @param {function} vizNode - The visualization function for nodes.
+ * @param {function} vizEdge - The visualization function for edges.
+ * @param {function} setFocusCodeLine - The function to set the focus code line.
+ * @param {number} delayTime - The delay time for visualization.
+ * @param {function} setIsPlaying - The function to set the playing state.
+ * @param {function} printLog - The function to print logs.
+ * @param {function} setTag - The function to set tags.
+ * @returns {Promise<void>} - A promise that resolves when the BFS algorithm is completed.
+ */
 export async function Bfs(
   graphData,
   source,

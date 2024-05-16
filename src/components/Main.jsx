@@ -1,3 +1,15 @@
+/**
+ * @file Main.jsx
+ * @desc The main component of the application.
+ * Renders the header, menu, drawing area, algorithms controller, log data, and footer.
+ * Manages the state of the graph data, visualization data, current algorithm, canvas positioning, log data, tags for nodes, and error alerts.
+ * Provides functions for visualizing nodes and edges, finding edge IDs, printing log data, setting tags for nodes, and resetting the visualization.
+ * Uses local storage to save and load graph data.
+ * @requires React, useState, useReducer, useRef, useEffect, useCallback
+ * @requires DrawGraph, SelectGraph, Node, Edge, Menu, Footer, Reproductor, AlgorithmsController, LogData, Header, SnackbarAlert
+ * @requires dottedBg
+ */
+
 import { useState, useReducer, useRef, useEffect, useCallback } from "react";
 import DrawGraph from "./DrawGraph/DrawGraph";
 import SelectGraph from "./SelectGraph/SelectGraph";

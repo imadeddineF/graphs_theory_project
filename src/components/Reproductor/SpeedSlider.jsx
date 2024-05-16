@@ -1,9 +1,15 @@
+/* eslint-disable react/prop-types */
 import Slider from "@mui/material/Slider";
 
 export default function SpeedSlider({ speed, setSpeed }) {
   const handleChange = (event, newValue) => {
     setSpeed(newValue);
   };
+
+  /**
+   * Styles for the slider component.
+   * @type {object}
+   */
 
   const sliderStyles = {
     root: {

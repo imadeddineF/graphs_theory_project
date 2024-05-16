@@ -1,3 +1,13 @@
+/* eslint-disable react/prop-types */
+/**
+ * Renders the pseudocode for the Prim's algorithm.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {number} props.focusCodeLine - The line number to highlight in the pseudocode.
+ * @returns {JSX.Element} The PrimPseudocode component.
+ */
+
 export default function PrimPseudocode({ focusCodeLine }) {
   function highlight(id) {
     return { backgroundColor: focusCodeLine === id ? "#06121f" : "" };

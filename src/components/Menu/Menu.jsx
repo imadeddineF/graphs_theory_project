@@ -1,4 +1,12 @@
+/* eslint-disable react/prop-types */
 import SubMenu from "./SubMenu";
+
+/**
+ * Menu component displays a list of algorithms and their submenus.
+ * @param {Object} props - The component props.
+ * @param {Function} props.setCurrentAlgorithm - Callback function to set the current algorithm.
+ * @returns {JSX.Element} The rendered Menu component.
+ */
 
 export default function Menu({ setCurrentAlgorithm }) {
   const algorithms = [

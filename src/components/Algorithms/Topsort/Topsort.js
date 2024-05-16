@@ -34,6 +34,15 @@ export async function Topsort(
       await DfsCall(i);
   }
 
+  /**
+   * Performs a depth-first search (DFS) traversal on a graph starting from a given node.
+   * This function is used to perform a topological sort on a directed acyclic graph (DAG).
+   *
+   * @param {number} u - The current node being visited.
+   * @param {number} parent - The parent node of the current node.
+   * @returns {Promise<void>} - A promise that resolves when the DFS traversal is complete.
+   */
+
   async function DfsCall(u, parent) {
     if (stop) return;
     if (color[u] === 2) {

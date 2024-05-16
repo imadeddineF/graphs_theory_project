@@ -1,9 +1,26 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Bfs } from "./Bfs";
 import BfsPseudocode from "./BfsPseudocode";
 import NodeSelector from "../Extra/NodeSelector";
 import PlayButton from "../Extra/PlayButton";
 import SnackbarAlert from "../../Common/SnackbarAlert";
+
+/**
+ * BfsController component.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.currentAlgorithm - The current algorithm name.
+ * @param {Object} props.graphData - The graph data.
+ * @param {Object} props.vizNode - The visualization node data.
+ * @param {Object} props.vizEdge - The visualization edge data.
+ * @param {number} props.delayTime - The delay time for visualization.
+ * @param {boolean} props.isPlaying - Flag indicating if the visualization is currently playing.
+ * @param {function} props.setIsPlaying - Function to set the isPlaying flag.
+ * @param {function} props.printLog - Function to print log messages.
+ * @param {function} props.setTag - Function to set the tag.
+ * @returns {JSX.Element} The rendered BfsController component.
+ */
 
 export default function BfsController({
   currentAlgorithm,

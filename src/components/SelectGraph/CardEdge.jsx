@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function EdgeDrawn({
   // id,
   edge,
@@ -6,6 +7,11 @@ export default function EdgeDrawn({
   isDirected,
   isCurved,
 }) {
+  /**
+   * The weight of the edge.
+   * @type {number}
+   */
+
   const weight = edge.w;
   const alfa =
     (Math.atan2(position.y2 - position.y1, position.x2 - position.x1) * 180) /

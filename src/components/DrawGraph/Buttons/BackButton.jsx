@@ -1,4 +1,14 @@
+/* eslint-disable react/prop-types */
 import BackspaceIcon from "@mui/icons-material/Backspace";
+
+/**
+ * Represents a back button component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Function} props.close - The function to be called when the button is clicked.
+ * @returns {JSX.Element} The back button component.
+ */
 
 export default function Back({ close }) {
   return (

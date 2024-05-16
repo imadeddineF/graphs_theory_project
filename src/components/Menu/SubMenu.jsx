@@ -1,7 +1,18 @@
+/* eslint-disable react/prop-types */
 import { useReducer } from "react";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { motion, AnimatePresence } from "framer-motion";
+
+/**
+ * SubMenu component displays a collapsible menu with a title and a list of items.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.title - The title of the SubMenu.
+ * @param {Array<string>} props.list - The list of items to display in the SubMenu.
+ * @param {Function} props.setCurrentAlgorithm - A function to set the current algorithm.
+ * @returns {JSX.Element} The rendered SubMenu component.
+ */
 
 export default function SubMenu({ title, list, setCurrentAlgorithm }) {
   const [open, toggleOpen] = useReducer((st) => !st, true);

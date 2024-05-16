@@ -1,3 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
+/**
+ * Renders the Instructions component.
+ * This component displays a set of instructions for using the graph drawing functionality.
+ *
+ * @returns {JSX.Element} The rendered Instructions component.
+ */
+
 export default function Instructions() {
   return (
     <div className="bg-instructions h-full rounded-lg px-4 py-6 shadow-md">

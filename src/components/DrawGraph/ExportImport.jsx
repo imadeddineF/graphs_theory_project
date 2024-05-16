@@ -1,3 +1,13 @@
+/**
+ * Component for exporting and importing graph data.
+ *
+ * @component
+ * @param {Object} graphData - The graph data to be exported or imported.
+ * @param {Function} setGraph - The function to update the graph data.
+ * @returns {JSX.Element} The ExportImport component.
+ */
+
+/* eslint-disable react/prop-types */
 import { useState, useReducer } from "react";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import Snackbar from "@mui/material/Snackbar";

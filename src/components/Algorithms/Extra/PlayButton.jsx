@@ -1,5 +1,14 @@
+/* eslint-disable react/prop-types */
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
+/**
+ * Renders a play button component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Function} props.handleClick - The click event handler for the button.
+ * @returns {JSX.Element} The rendered PlayButton component.
+ */
 export default function PlayButton({ handleClick }) {
   return (
     <button

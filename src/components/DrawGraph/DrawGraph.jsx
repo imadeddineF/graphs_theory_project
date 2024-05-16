@@ -1,3 +1,31 @@
+/**
+ * @file FILEPATH: /C:/Users/MATEBOOK/Desktop/theory/src/components/DrawGraph/DrawGraph.jsx
+ * @summary This file contains the implementation of the DrawGraph component.
+ * The DrawGraph component allows users to draw and manipulate graphs.
+ * It provides functionality for adding nodes and edges, editing node and edge properties,
+ * deleting nodes and edges, and displaying instructions.
+ * The component uses React hooks and state management to handle user interactions and graph data.
+ * It also includes sub-components for rendering nodes, edges, and various buttons.
+ * The component is exported as the default export.
+ *
+ * @description The DrawGraph component is responsible for rendering and managing the graph drawing interface.
+ * It receives props such as `close`, `sendGraph`, and `currentGraph` from its parent component.
+ * The component initializes the graph data using the `useReducer` hook and sets up various state variables.
+ * It also includes event handlers and helper functions for manipulating the graph data.
+ * The component renders a UI with instructions, a graph drawing area, and various buttons for interacting with the graph.
+ * It also includes error handling for duplicate edges and provides a snackbar alert for displaying error messages.
+ *
+ * @param {Object} props - The component props.
+ * @param {Function} props.close - A function to close the DrawGraph component.
+ * @param {Function} props.sendGraph - A function to send the graph data to the parent component.
+ * @param {Object} props.currentGraph - The current graph data to be displayed in the DrawGraph component.
+ *
+ * @returns {JSX.Element} The rendered DrawGraph component.
+ */
+
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-case-declarations */
+/* eslint-disable react/prop-types */
 import { useState, useReducer, useRef, useEffect } from "react";
 import NodeDrawn from "./NodeDrawn";
 import EdgeDrawn from "./EdgeDrawn";

@@ -1,5 +1,21 @@
 import { delay } from "../Extra/Extra";
 
+/**
+ * Runs the Bellman-Ford algorithm on a given graph.
+ *
+ * @param {object} graphData - The graph data object.
+ * @param {number} source - The source node.
+ * @param {function} vizNode - The visualization function for nodes.
+ * @param {function} vizEdge - The visualization function for edges.
+ * @param {function} setFocusCodeLine - The function to set the focus code line.
+ * @param {number} delayTime - The delay time for visualization.
+ * @param {function} setIsPlaying - The function to set the playing state.
+ * @param {function} printLog - The function to print logs.
+ * @param {function} setTag - The function to set tags.
+ * @param {function} hasNegaCycle - The function to check if the graph has a negative cycle.
+ * @returns {Promise<void>} - A promise that resolves when the algorithm is done.
+ */
+
 export async function Bellmanford(
   graphData,
   source,

@@ -1,3 +1,15 @@
+/**
+ * Represents a list of graphs.
+ *
+ * @typedef {Object[]} GraphList
+ * @property {Object} nodes - The nodes of the graph.
+ * @property {number} topNode - The top node index.
+ * @property {number} topEdge - The top edge index.
+ * @property {boolean} isWeighted - Indicates if the graph is weighted.
+ * @property {boolean} isDirected - Indicates if the graph is directed.
+ * @property {Object} edges - The edges of the graph.
+ */
+
 export const graphList = [
   {
     nodes: {

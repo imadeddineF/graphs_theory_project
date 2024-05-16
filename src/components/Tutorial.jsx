@@ -1,5 +1,12 @@
+/**
+ * Tutorial component.
+ * @param {function} close - Function to close the tutorial.
+ * @returns {JSX.Element} The rendered Tutorial component.
+ */
+
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
+// eslint-disable-next-line react/prop-types
 export default function Tutorial({ close }) {
   return (
     <div className="w-full h-screen bg-[#0a1b2c]">

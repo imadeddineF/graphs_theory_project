@@ -1,3 +1,13 @@
+/* eslint-disable react/prop-types */
+/**
+ * A button component used to finish an action.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Function} props.finish - The function to be called when the button is clicked.
+ * @returns {JSX.Element} The rendered FinishButton component.
+ */
+
 export default function FinishButton({ finish }) {
   return (
     <button
