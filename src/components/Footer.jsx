@@ -9,7 +9,7 @@ export default function Footer() {
       <button>
         <GitHubIcon
           className="hover:scale-110 transition-all text-primary5 duration-300"
-          onClick={() => window.open("https://github.com/imadeddineF")}
+          onClick={() => window.open("https://github.com/imadeddineF/graphs_theory_project")}
         />
       </button>
     </div>
