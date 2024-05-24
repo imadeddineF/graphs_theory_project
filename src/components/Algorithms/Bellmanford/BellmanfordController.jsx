@@ -36,13 +36,17 @@ export default function BellmanfordController({
   printLog,
   setTag,
 }) {
+  // State for the selected source node
   const [source, setSource] = useState("");
+  // State for the focused line in the pseudocode
   const [focusCodeLine, setFocusCodeLine] = useState();
-  // Error state
+  // Error state for handling errors
   const [openError, setOpenError] = useState(false);
   const [error, setError] = useState("");
+  // Check if the graph data is empty
   const isBlank = Object.keys(graphData.nodes).length === 0;
 
+  // Handle click event for the play button
   function handleClick() {
     if (isPlaying) {
       setOpenError(true);
@@ -68,6 +72,7 @@ export default function BellmanfordController({
       return;
     }
 
+    // Set the playing state to true and start the Bellman-Ford algorithm
     setIsPlaying(true);
     Bellmanford(
       graphData,
@@ -83,6 +88,7 @@ export default function BellmanfordController({
     );
   }
 
+  // Function to handle the presence of a negative-weight cycle
   function hasNegaCycle() {
     setOpenError(true);
     setError("Graph contains a negative-weight cycle");

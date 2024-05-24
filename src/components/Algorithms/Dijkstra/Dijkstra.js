@@ -1,13 +1,34 @@
+/**
+ * Class representing an element in the priority queue for Dijkstra's algorithm.
+ */
 class QElement {
+  /**
+   * Creates an instance of QElement.
+   * @param {number} id - The node ID.
+   * @param {number} distance - The distance of the node from the source.
+   */
   constructor(id, distance) {
     this.id = id;
     this.distance = distance;
   }
 }
+
+/**
+ * Class representing a priority queue used in Dijkstra's algorithm.
+ */
 class PriorityQueue {
+  /**
+   * Creates an instance of PriorityQueue.
+   */
   constructor() {
     this.items = [];
   }
+
+  /**
+   * Enqueues an element into the priority queue based on its distance.
+   * @param {number} id - The node ID.
+   * @param {number} distance - The distance of the node from the source.
+   */
   enqueue(id, distance) {
     let qElement = new QElement(id, distance);
     let contain = false;
@@ -24,17 +45,32 @@ class PriorityQueue {
       this.items.push(qElement);
     }
   }
+
+  /**
+   * Removes and returns the element with the lowest distance from the priority queue.
+   * @returns {QElement} The element with the lowest distance.
+   */
   pop() {
     return this.items.shift();
   }
+
+  /**
+   * Returns the element with the lowest distance without removing it from the queue.
+   * @returns {QElement} The element with the lowest distance.
+   */
   front() {
-    // returns the lowest distance element
     return this.items[0];
   }
+
+  /**
+   * Checks if the priority queue is empty.
+   * @returns {boolean} True if the queue is empty, false otherwise.
+   */
   isEmpty() {
     return this.items.length === 0;
   }
 }
+
 import { delay, getAdj } from "../Extra/Extra";
 
 /**
@@ -79,14 +115,14 @@ export async function Dijkstra(
     D.push(Number.MAX_VALUE);
     P.push(null);
 
-    //Visualization
+    // Visualization
     setTag(i, "∞");
   }
 
   Q.enqueue(source, 0);
   D[source] = 0;
 
-  //Visualization
+  // Visualization
   setTag(source, 0);
   setFocusCodeLine(4);
   await delay(delayTime);

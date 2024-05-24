@@ -9,9 +9,16 @@
  */
 
 export default function BfsPseudocode({ focusCodeLine }) {
+  /**
+   * Highlights a specific line in the pseudocode.
+   *
+   * @param {number} id - The line number to highlight.
+   * @returns {Object} - The style object with backgroundColor set if the line is highlighted.
+   */
   function highlight(id) {
     return { backgroundColor: focusCodeLine === id ? "#06121f" : "" };
   }
+
   return (
     <ul className="bg-pseudocode w-[60%] rounded-lg py-8 px-8 text-white flex flex-col gap-2">
       <li className="ml-2">

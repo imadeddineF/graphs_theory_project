@@ -19,9 +19,11 @@ export default function EditWeight({
   handleSubmit,
 }) {
   const newWeight = useRef();
+
   useEffect(() => {
     if (newWeight.current) newWeight.current.focus();
   }, []);
+
   return (
     <form
       className="-mt-28 ml-5 shadow-md w-fit py-2 px-4 rounded-md bg-[#efefef] z-10"
@@ -35,13 +37,13 @@ export default function EditWeight({
       <h2 className="mb-2">Modifier le poids:</h2>
       <div className="flex items-center gap-2">
         <input
-          className="rounded-lg py-2 outline-none px-3 w-40 shadow-md"
+          className="w-40 px-3 py-2 rounded-lg shadow-md outline-none"
           type="number"
           ref={newWeight}
           autoFocus
         />
         <button
-          className="bg-primary5 rounded-full h-10 w-10 flex justify-center items-center hover:bg-primary5hover transition duration-300"
+          className="flex items-center justify-center w-10 h-10 transition duration-300 rounded-full bg-primary5 hover:bg-primary5hover"
           type="submit"
         >
           <ArrowForwardIcon

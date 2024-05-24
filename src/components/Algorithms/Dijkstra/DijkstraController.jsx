@@ -23,6 +23,7 @@ import Snackbar from "@mui/material/Snackbar";
  * @param {function} props.setTag - Function to set the tag.
  * @returns {JSX.Element} The DijkstraController component.
  */
+
 export default function DijkstraController({
   currentAlgorithm,
   graphData,
@@ -34,19 +35,20 @@ export default function DijkstraController({
   printLog,
   setTag,
 }) {
-  const [source, setSource] = useState("");
-  const [focusCodeLine, setFocusCodeLine] = useState();
+  const [source, setSource] = useState(""); // State for source node
+  const [focusCodeLine, setFocusCodeLine] = useState(); // State for focusing on a line of pseudocode
 
-  // Errors
+  // State for handling errors
   const [openError, setOpenError] = useState(false);
   const [error, setError] = useState();
-  const isBlank = Object.keys(graphData.nodes).length === 0;
+  const isBlank = Object.keys(graphData.nodes).length === 0; // Check if graph is blank
 
   /**
    * Handles the click event when the play button is clicked.
    * Executes the Dijkstra algorithm visualization.
    */
   function handleClick() {
+    // Check for various conditions before starting the visualization
     if (isPlaying) {
       setOpenError(true);
       setError("Wait until the visualization is finished");
@@ -72,6 +74,7 @@ export default function DijkstraController({
       setError("Graph should not have negative weights for this algorithm");
       return;
     }
+    // If all conditions are satisfied, start the visualization
     setIsPlaying(true);
     Dijkstra(
       graphData,
@@ -93,6 +96,7 @@ export default function DijkstraController({
    */
   function negativeEdges() {
     let ret = false;
+    // Check each edge weight, if any edge has a negative weight, return true
     Object.values(graphData.edges).forEach(({ w }) => {
       if (w < 0) ret = true;
     });
@@ -102,17 +106,21 @@ export default function DijkstraController({
   return (
     <div className="flex flex-col items-center justify-center px-2">
       <h3 className="py-8 font-bold text-[24px]">{currentAlgorithm}</h3>
+      {/* Render the pseudocode component */}
       <DijkstraPseudocode focusCodeLine={focusCodeLine} />
 
       <div className="flex justify-end items-center w-full h-[50px] mt-16 gap-5 pr-10">
+        {/* NodeSelector component for selecting source node */}
         <NodeSelector
           nodes={Object.keys(graphData.nodes)}
           source={source}
           setSource={setSource}
         />
+        {/* PlayButton component for starting the visualization */}
         <PlayButton handleClick={handleClick} />
       </div>
 
+      {/* Snackbar for displaying error messages */}
       <Snackbar
         open={openError}
         autoHideDuration={6000}

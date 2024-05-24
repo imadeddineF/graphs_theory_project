@@ -24,6 +24,7 @@ export default function Card({
     setCurrent(id);
     setGraphData(graphData);
   }
+
   const selectedStyle = { border: selected ? "solid #F54748 3px" : "" };
 
   return (
@@ -53,6 +54,7 @@ export default function Card({
             />
           );
         })}
+
         {Object.entries(graphData.nodes).map((element) => {
           const idx = element[0];
           const node = element[1];

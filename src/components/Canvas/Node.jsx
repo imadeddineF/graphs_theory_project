@@ -23,6 +23,7 @@ export default function Node({ position, id, highlight, tag }) {
         return "white";
     }
   }
+
   function colortag() {
     switch (highlight) {
       case "blue":
@@ -39,7 +40,9 @@ export default function Node({ position, id, highlight, tag }) {
         return "black";
     }
   }
+
   const tagRef = useRef();
+
   const backWidth = tagRef.current
     ? tagRef.current.getBoundingClientRect().width
     : 0;
@@ -54,6 +57,7 @@ export default function Node({ position, id, highlight, tag }) {
       >
         {Number(id)}
       </text>
+
       {tag !== undefined && (
         <>
           <rect

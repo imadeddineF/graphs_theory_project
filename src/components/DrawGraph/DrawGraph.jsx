@@ -49,17 +49,20 @@ function dataReducer(state, event) {
         nodes: { ...state.nodes, [state.topNode]: event.value.node },
         topNode: state.topNode + 1,
       };
+
     case "add-edge":
       return {
         ...state,
         edges: { ...state.edges, [state.topEdge]: event.value.edge },
         topEdge: state.topEdge + 1,
       };
+
     case "edit-node":
       return {
         ...state,
         nodes: { ...state.nodes, [event.value.id]: event.value.node },
       };
+
     case "edit-edge":
       return {
         ...state,
@@ -71,20 +74,26 @@ function dataReducer(state, event) {
           },
         },
       };
+
     case "delete-node":
       const { nodes, ...withoutNodes } = state;
       const { [event.value]: removedNode, ...updatedNodes } = nodes;
       return { nodes: updatedNodes, ...withoutNodes };
+
     case "delete-edge":
       const { edges, ...withoutEdges } = state;
       const { [event.value]: removedEdge, ...updatedEdges } = edges;
       return { edges: updatedEdges, ...withoutEdges };
+
     case "set-graph":
       return event.value;
+
     case "set-isWeighted":
       return { ...state, isWeighted: event.value };
+
     case "set-isDirected":
       return { ...state, isDirected: event.value };
+
     default:
       throw new Error();
   }
@@ -98,9 +107,11 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
     nodes: {},
     edges: {},
   };
+
   const [graphData, updateGraphData] = useReducer(dataReducer, blankGraph);
   const [currentNode, setCurrentNode] = useState(null);
   const [currentEdge, setCurrentEdge] = useState(null);
+
   //Error states
   const [openError, setOpenError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -135,12 +146,14 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
       setOpenError(true);
       return;
     }
+
     //If user tries to add edge u->v but v->u already exists and is not directed
     if (!graphData.isDirected && findEdge(second, first)) {
       setErrorMessage("Graph needs to be directed to add double edges!");
       setOpenError(true);
       return;
     }
+
     updateGraphData({
       name: "add-edge",
       value: { edge: { u: first, v: second, w: 1 } },
@@ -248,21 +261,21 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
   return (
     <div className="w-screen h-screen fixed top-0 left-0 bg-[#00000080] overflow-auto z-10">
       <div className="w-[95%] flex flex-col justify-between bg-primary3 rounded-xl p-5 pt-0 mx-auto my-10 font-bold">
-        <div className="flex justify-between items-center text-white px-5 py-5">
+        <div className="flex items-center justify-between px-5 py-5 text-white">
           <h2 className="font-bold text-[24px]">Dessiner un graphe</h2>
-          <button className="border border-white p-1  h-fit rounded-full hover:scale-105 transition-all duration-300">
+          <button className="p-1 transition-all duration-300 border border-white rounded-full h-fit hover:scale-105">
             <CloseIcon className="text-white" onClick={close} />
           </button>
         </div>
 
-        <div className="h-full gap-4 grid grid-cols-12">
+        <div className="grid h-full grid-cols-12 gap-4">
           <div className="col-span-2">
             <Instructions />
           </div>
 
           <div className="col-span-8">
             <svg
-              className=" outline-none bg-playGroundBg rounded-xl shadow-md w-full h-full"
+              className="w-full h-full shadow-md outline-none bg-playGroundBg rounded-xl"
               onMouseDown={(event) => {
                 if (currentNode == null && currentEdge == null)
                   createNode(
@@ -366,7 +379,7 @@ export default function DrawGraph({ close, sendGraph, currentGraph }) {
           </div>
         </div>
 
-        <div className="items-center mt-6 flex justify-between w-full">
+        <div className="flex items-center justify-between w-full mt-6">
           <BackButton close={close} />
           <WeightedEdgesToggle
             isWeighted={graphData.isWeighted}

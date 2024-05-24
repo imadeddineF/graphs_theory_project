@@ -14,6 +14,7 @@ import { delay, getAdj } from "../Extra/Extra";
  * @param {function} setTag - The function to set tags.
  * @returns {Promise<void>} - A promise that resolves when the BFS algorithm is completed.
  */
+
 export async function Bfs(
   graphData,
   source,
@@ -38,18 +39,21 @@ export async function Bfs(
   const D = []; // Array of distances
   const Q = []; // Queue
   const P = []; // Parents
+
+  // Initialize distances and parents, and set initial tags
   for (let i = 0; i < topNode; i++) {
     D.push(Number.MAX_VALUE);
     P.push(null);
 
-    //Visualization
+    // Visualization
     setTag(i, "∞");
   }
+
+  // Start BFS from the source node
   Q.push(source);
   D[source] = 0;
-  console.log(adj);
 
-  //Visualization
+  // Visualization
   setTag(source, 0);
   printLog(
     `La distance minimale de ${source} vers ${source} ->  D[${source}] = ${D[source]}`
@@ -57,6 +61,7 @@ export async function Bfs(
   setFocusCodeLine(4);
   await delay(delayTime);
 
+  // Main BFS loop
   while (Q.length > 0) {
     const u = Q[0];
     Q.shift();
@@ -66,10 +71,12 @@ export async function Bfs(
     setFocusCodeLine(6);
     await delay(delayTime);
 
+    // Traverse all adjacent nodes
     for (let i = 0; i < adj[u].length; i++) {
       const v = adj[u][i];
       if (P[u] === v) continue;
 
+      // If the node v is not visited
       if (D[v] === Number.MAX_VALUE) {
         D[v] = D[u] + 1;
         P[v] = u;
@@ -87,20 +94,25 @@ export async function Bfs(
         setFocusCodeLine();
         await delay(delayTime / 5);
       } else {
-        // Visualization
+        // Visualization for already visited node
         vizEdge(u, v, "red", isDirected);
         setFocusCodeLine();
         await delay(delayTime);
         vizEdge(u, v, "black", isDirected);
       }
     }
-    // Done
+
+    // Check if the queue is empty
     if (Q.length === 0) {
       printLog("done");
     }
+
+    // Final visualization for the node
     vizNode(u, "blue");
     setFocusCodeLine();
     await delay(delayTime / 5);
   }
+
+  // Set the playing state to false after completion
   setIsPlaying(false);
 }

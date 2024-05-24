@@ -35,14 +35,19 @@ export default function BfsController({
   printLog,
   setTag,
 }) {
+  // State variables
   const [source, setSource] = useState("");
   const [focusCodeLine, setFocusCodeLine] = useState();
 
-  // Errors
+  // Error handling state
   const [openError, setOpenError] = useState(false);
   const [error, setError] = useState();
   const isBlank = Object.keys(graphData.nodes).length === 0;
 
+  /**
+   * Handles the click event for the play button.
+   * Validates the conditions and initiates the BFS algorithm if conditions are met.
+   */
   function handleClick() {
     if (isPlaying) {
       setOpenError(true);
@@ -64,6 +69,8 @@ export default function BfsController({
       setError("Graph should not be weighted for this algorithm");
       return;
     }
+
+    // Set the playing state to true and start BFS
     setIsPlaying(true);
     Bfs(
       graphData,

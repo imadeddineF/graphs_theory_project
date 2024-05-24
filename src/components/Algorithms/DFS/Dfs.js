@@ -1,5 +1,18 @@
 import { delay, getAdj } from "../Extra/Extra";
 
+/**
+ * Performs Depth-First Search (DFS) algorithm on a graph.
+ *
+ * @param {object} graphData - The graph data containing topNode, edges, and isDirected.
+ * @param {number} source - The source node for DFS.
+ * @param {function} vizNode - The visualization function for nodes.
+ * @param {function} vizEdge - The visualization function for edges.
+ * @param {function} setFocusCodeLine - The function to set the focus code line.
+ * @param {number} delayTime - The delay time for visualization.
+ * @param {function} setIsPlaying - The function to set the playing state.
+ * @param {function} printLog - The function to print logs.
+ * @returns {Promise<void>} - A promise that resolves when the DFS algorithm is completed.
+ */
 export async function Dfs(
   graphData,
   source,
@@ -20,7 +33,7 @@ export async function Dfs(
   await delay(50);
   printLog("Recherche en profondeur:");
 
-  const visit = []; // Visited
+  const visit = []; // Visited array to keep track of visited nodes
   for (let i = 0; i < topNode; i++) {
     visit.push(false);
   }
@@ -54,14 +67,14 @@ export async function Dfs(
       const v = adj[u][i];
       if (v === parent) continue;
       if (visit[v]) {
-        //Visualization
+        // Visualization for already visited nodes
         vizEdge(u, v, "red", isDirected);
         setFocusCodeLine(3);
         await delay(delayTime);
         vizEdge(u, v, "black", isDirected);
       }
 
-      //Visualization
+      // Visualization for recursive DFS call
       setFocusCodeLine(7);
       await delay(delayTime / 5);
       await DfsCall(v, u);

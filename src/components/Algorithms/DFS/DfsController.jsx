@@ -42,6 +42,11 @@ export default function DfsController({
   const [openError, setOpenError] = useState(false);
   const [error, setError] = useState();
   const isBlank = Object.keys(graphData.nodes).length === 0;
+
+  /**
+   * Handles the click event for the play button.
+   * Validates the current state and triggers the DFS algorithm.
+   */
   function handleClick() {
     if (isPlaying) {
       setOpenError(true);

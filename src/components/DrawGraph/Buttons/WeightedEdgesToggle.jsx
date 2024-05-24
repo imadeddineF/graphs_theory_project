@@ -12,7 +12,7 @@ import Switch from "@mui/material/Switch";
 
 export default function WeightedEdgesToggle({ isWeighted, setIsWeighted }) {
   return (
-    <div className="flex items-center gap-2 text-white font-bold">
+    <div className="flex items-center gap-2 font-bold text-white">
       Arêtes pondérées
       <Switch
         checked={isWeighted}

@@ -65,6 +65,7 @@ export default function Edge({
     t ** 2 * position.y2;
   const angle =
     (Math.atan2(position.y2 - tempY, position.x2 - tempX) * 180) / Math.PI;
+
   function color() {
     switch (highlight) {
       case "blue":
@@ -83,6 +84,7 @@ export default function Edge({
         return "black";
     }
   }
+
   return (
     <g>
       {/* Straight lines */}
@@ -106,6 +108,7 @@ export default function Edge({
           />
         </>
       )}
+
       {/* Curved lines  */}
       {isCurved && (
         <>
@@ -123,6 +126,7 @@ export default function Edge({
           />
         </>
       )}
+
       {isWeighted && (
         <text
           x={textPosX}
@@ -135,6 +139,7 @@ export default function Edge({
           {weight}
         </text>
       )}
+
       {isDirected && (
         <path
           d={`M ${position.x2} ${position.y2} L ${position.x2 + 6} ${

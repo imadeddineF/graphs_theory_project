@@ -78,7 +78,7 @@ export default function EdgeDrawn({
         e.stopPropagation();
         handleClick(id, "double");
       }}
-      className=" cursor-pointer"
+      className="cursor-pointer "
     >
       {/* Straight lines */}
       {!isCurved && (
@@ -101,6 +101,7 @@ export default function EdgeDrawn({
           />
         </>
       )}
+
       {/* Curved lines  */}
       {isCurved && (
         <>
@@ -118,6 +119,7 @@ export default function EdgeDrawn({
           />
         </>
       )}
+
       {isWeighted && (
         <text
           x={textPosX}
@@ -130,6 +132,7 @@ export default function EdgeDrawn({
           {weight}
         </text>
       )}
+
       {isDirected && (
         <path
           d={`M ${position.x2} ${position.y2} L ${position.x2 + 6} ${

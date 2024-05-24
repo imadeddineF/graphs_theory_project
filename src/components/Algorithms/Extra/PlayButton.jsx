@@ -9,6 +9,7 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
  * @param {Function} props.handleClick - The click event handler for the button.
  * @returns {JSX.Element} The rendered PlayButton component.
  */
+
 export default function PlayButton({ handleClick }) {
   return (
     <button

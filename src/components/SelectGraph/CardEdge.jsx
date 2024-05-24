@@ -55,6 +55,7 @@ export default function EdgeDrawn({
     t ** 2 * position.y2;
   const angle =
     (Math.atan2(position.y2 - tempY, position.x2 - tempX) * 180) / Math.PI;
+
   return (
     <g>
       {/* Straight lines */}
@@ -78,6 +79,7 @@ export default function EdgeDrawn({
           />
         </>
       )}
+
       {/* Curved lines  */}
       {isCurved && (
         <>
@@ -95,6 +97,7 @@ export default function EdgeDrawn({
           />
         </>
       )}
+
       {isWeighted && (
         <text
           x={textPosX}
@@ -107,6 +110,7 @@ export default function EdgeDrawn({
           {weight}
         </text>
       )}
+
       {isDirected && (
         <path
           d={`M ${position.x2} ${position.y2} L ${position.x2 + 6} ${
