@@ -4,7 +4,9 @@ import { Prim } from "./Prim";
 import PrimPseudocode from "./PrimPseudocode";
 import NodeSelector from "../Extra/NodeSelector";
 import PlayButton from "../Extra/PlayButton";
-import SnackbarAlert from "../../Common/SnackbarAlert";
+import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+// import SnackbarAlert from "../../Common/SnackbarAlert";
 
 /**
  * Renders the PrimController component.
@@ -75,7 +77,7 @@ export default function PrimController({
     );
   }
   return (
-    <div className="flex flex-col px-2 items-center justify-center">
+    <div className="flex flex-col items-center justify-center px-2">
       <h3 className="py-8 font-bold text-[24px]">{currentAlgorithm}</h3>
       <PrimPseudocode focusCodeLine={focusCodeLine} />
 
@@ -88,11 +90,16 @@ export default function PrimController({
         <PlayButton handleClick={handleClick} />
       </div>
 
-      <SnackbarAlert
-        openError={openError}
-        setOpenError={setOpenError}
-        error={error}
-      />
+      <Snackbar
+        open={openError}
+        autoHideDuration={6000}
+        onClose={() => setOpenError(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert onClose={() => setOpenError(false)} severity="warning">
+          {error}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

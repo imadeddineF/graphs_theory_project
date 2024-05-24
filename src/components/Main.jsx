@@ -24,17 +24,6 @@ import Header from "./Header";
 import SnackbarAlert from "./Common/SnackbarAlert";
 import dottedBg from "/assets/svgs/medium-light.svg";
 
-// Function to save data to local storage
-const saveDataToLocalStorage = (key, data) => {
-  localStorage.setItem(key, JSON.stringify(data));
-};
-
-// Function to load data from local storage
-const loadDataFromLocalStorage = (key, defaultValue) => {
-  const data = localStorage.getItem(key);
-  return data ? JSON.parse(data) : defaultValue;
-};
-
 function vizDataReducer(state, event) {
   switch (event.name) {
     case "node":
@@ -57,32 +46,18 @@ function vizDataReducer(state, event) {
 export default function Main() {
   const [showDrawGraph, setShowDrawGraph] = useState(false);
   const [showSelectGraph, setShowSelectGraph] = useState(false);
-  // const blankGraph = useRef({
-  //   topNode: 0,
-  //   topEdge: 0,
-  //   isWeighted: false,
-  //   isDirected: false,
-  //   nodes: {},
-  //   edges: {},
-  // });
 
-  // const [graphData, setGraphData] = useState(blankGraph.current);
-  const [graphData, setGraphData] = useState(() =>
-    loadDataFromLocalStorage("graphData", {
-      topNode: 0,
-      topEdge: 0,
-      isWeighted: false,
-      isDirected: false,
-      nodes: {},
-      edges: {},
-    })
-  );
+  const blankGraph = useRef({
+    topNode: 0,
+    topEdge: 0,
+    isWeighted: false,
+    isDirected: false,
+    nodes: {},
+    edges: {},
+  });
+
+  const [graphData, setGraphData] = useState(blankGraph.current);
   const [currentAlgorithm, setCurrentAlgorithm] = useState();
-
-  // Save graph data to local storage whenever it changes
-  useEffect(() => {
-    saveDataToLocalStorage("graphData", graphData);
-  }, [graphData]);
 
   // Visualization states
   const blankVizData = useRef({ nodes: {}, edges: {} });
@@ -169,35 +144,36 @@ export default function Main() {
   // Snackbar alert errors
   const [openError, setOpenError] = useState(false);
   const [error, setError] = useState();
-
   return (
     <>
-      <div className="">
-        <Header
-          setShowDrawGraph={setShowDrawGraph}
-          setShowSelectGraph={setShowSelectGraph}
-          setOpenError={setOpenError}
-          setError={setError}
-          isPlaying={isPlaying}
-        />
+      <Header
+        setShowDrawGraph={setShowDrawGraph}
+        setShowSelectGraph={setShowSelectGraph}
+        setOpenError={setOpenError}
+        setError={setError}
+        isPlaying={isPlaying}
+      />
 
+      <div className="">
         <main className="grid grid-cols-10">
           <div className="col-span-2">
             <Menu setCurrentAlgorithm={setCurrentAlgorithm} />
           </div>
-
           <div className="flex flex-col col-span-8">
             {/* Drawing area */}
             <div
-              className="relative bg-[#F3F3F3] overflow-hidden h-[680px] w-full flex justify-center items-center"
+              className="relative bg-[#e5e5e5] overflow-hidden h-[680px] w-full flex justify-center items-center"
               ref={canvasRef}
             >
+              <div className="absolute z-50 px-3 py-1 text-white rounded-lg top-2 right-2 bg-primary1">
+                {!currentAlgorithm ? "-" : currentAlgorithm}
+              </div>
               <img
-                className="absolute top-0 left-0 scale-150 w-full h-full"
+                className="absolute top-0 left-0 w-full h-full scale-150"
                 src={dottedBg}
                 alt=""
               />
-              <svg className="w-full z-10 h-full">
+              <svg className="z-10 w-full h-full">
                 {Object.entries(graphData.edges).map((element) => {
                   const idx = element[0];
                   const edge = element[1];
@@ -269,6 +245,7 @@ export default function Main() {
             }}
           />
         )}
+
         {showDrawGraph && (
           <DrawGraph
             currentGraph={graphData}

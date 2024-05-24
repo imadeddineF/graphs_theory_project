@@ -4,7 +4,9 @@ import { Bellmanford } from "./Bellmanford";
 import BellmanfordPseudocode from "./BellmanfordPseudocode";
 import NodeSelector from "../Extra/NodeSelector";
 import PlayButton from "../Extra/PlayButton";
-import SnackbarAlert from "../../Common/SnackbarAlert";
+import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+// import SnackbarAlert from "../../Common/SnackbarAlert";
 
 /**
  * BellmanfordController component.
@@ -36,31 +38,36 @@ export default function BellmanfordController({
 }) {
   const [source, setSource] = useState("");
   const [focusCodeLine, setFocusCodeLine] = useState();
-  // Errors
+  // Error state
   const [openError, setOpenError] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
   const isBlank = Object.keys(graphData.nodes).length === 0;
+
   function handleClick() {
     if (isPlaying) {
       setOpenError(true);
       setError("Wait until the visualization is finished");
       return;
     }
+
     if (isBlank) {
       setOpenError(true);
       setError("Please select or draw a graph first");
       return;
     }
+
     if (!source) {
       setOpenError(true);
       setError("Please select source");
       return;
     }
+
     if (!graphData.isWeighted) {
       setOpenError(true);
       setError("Graph should be weighted for this algorithm");
       return;
     }
+
     setIsPlaying(true);
     Bellmanford(
       graphData,
@@ -75,12 +82,14 @@ export default function BellmanfordController({
       hasNegaCycle
     );
   }
+
   function hasNegaCycle() {
     setOpenError(true);
     setError("Graph contains a negative-weight cycle");
   }
+
   return (
-    <div className="flex flex-col px-2 items-center justify-center">
+    <div className="flex flex-col items-center justify-center px-2">
       <h3 className="py-8 font-bold text-[24px]">{currentAlgorithm}</h3>
       <BellmanfordPseudocode focusCodeLine={focusCodeLine} />
 
@@ -93,11 +102,17 @@ export default function BellmanfordController({
         <PlayButton handleClick={handleClick} />
       </div>
 
-      <SnackbarAlert
-        openError={openError}
-        setOpenError={setOpenError}
-        error={error}
-      />
+      {/* Render Alert using Snackbar for better UX */}
+      <Snackbar
+        open={openError}
+        autoHideDuration={6000}
+        onClose={() => setOpenError(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert onClose={() => setOpenError(false)} severity="warning">
+          {error}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

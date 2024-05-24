@@ -12,12 +12,19 @@ import SpeedIcon from "@mui/icons-material/Speed";
  */
 
 export default function Reproductor({ speed, setSpeed }) {
+  function calculateSpeed(speed) {
+    return (50 / speed).toFixed(2); // Calculate nodes per second
+  }
+
   return (
-    <div className="bg-speed flex justify-center">
-      <div className="flex items-center w-[400px] gap-3 py-5">
+    <div className="flex justify-center bg-speed">
+      <div className="flex items-center w-[420px] gap-3 py-5">
         <p className="text-black font-medium text-[18px] mr-3">Speed</p>
         <SpeedSlider speed={speed} setSpeed={setSpeed} />
-        <SpeedIcon className="text-black ml-1" />
+        <p className=" text-nowrap">
+          <span className="font-bold">{calculateSpeed(speed)}</span> n/s
+        </p>
+        <SpeedIcon className="ml-1 text-black" />
       </div>
     </div>
   );

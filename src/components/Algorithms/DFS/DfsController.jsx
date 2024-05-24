@@ -14,13 +14,16 @@
  * @param {function} props.setTag - Function to set the tag.
  * @returns {JSX.Element} The rendered DfsController component.
  */
+
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Dfs } from "./Dfs";
 import DfsPseudocode from "./DfsPseudocode";
 import NodeSelector from "../Extra/NodeSelector";
 import PlayButton from "../Extra/PlayButton";
-import SnackbarAlert from "../../Common/SnackbarAlert";
+import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+// import SnackbarAlert from "../../Common/SnackbarAlert";
 
 export default function DfsController({
   currentAlgorithm,
@@ -70,7 +73,7 @@ export default function DfsController({
   }
 
   return (
-    <div className="flex flex-col px-2 items-center justify-center">
+    <div className="flex flex-col items-center justify-center px-2">
       <h3 className="py-8 font-bold text-[24px]">{currentAlgorithm}</h3>
       <DfsPseudocode focusCodeLine={focusCodeLine} />
 
@@ -83,11 +86,16 @@ export default function DfsController({
         <PlayButton handleClick={handleClick} />
       </div>
 
-      <SnackbarAlert
-        openError={openError}
-        setOpenError={setOpenError}
-        error={error}
-      />
+      <Snackbar
+        open={openError}
+        autoHideDuration={6000}
+        onClose={() => setOpenError(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert onClose={() => setOpenError(false)} severity="warning">
+          {error}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

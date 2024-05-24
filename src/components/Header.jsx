@@ -40,27 +40,13 @@ export default function Header({
   }
 
   return (
-    <header className="w-full top-0 flex justify-between items-center bg-primary3  text-white">
-      <div className="bg-primary5 h-full p-6 relative">
+    <header className="top-0 flex items-center justify-between w-full text-white bg-primary3">
+      <div className="relative h-full p-6 bg-primary5">
         <h1 className="font-bold text-[24px]">Graph Algorithms Visualizer</h1>
         <div className=" absolute bg-primary3 -right-10 top-0 h-full border-[42px] border-primary3 border-l-primary5 border-r-0" />
       </div>
 
       <div className="flex items-center gap-4 mr-4">
-        {/* Add Dark Theme Button Switcher */}
-        {/* <button
-          onClick={() => setMode(mode === "light" ? "dark" : "light")}
-          className={`flex items-center justify-center p-1 ml-3 rounded-full ${
-            mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
-          }`}
-        >
-          {mode === "dark" ? (
-            <SunIcon className={"fill-dark"} />
-          ) : (
-            <MoonIcon className={"fill-dark"} />
-          )}
-        </button> */}
-
         <button
           className="flex items-center gap-2 text-[18px] bg-primary5 text-primaryTextBtn font-semibold rounded-md px-4 py-3 hover:bg-primary5hover  transition duration-300"
           onClick={() => handleClick("select")}
